@@ -1,11 +1,15 @@
 import "./App.css";
+import OverMission from "./assets/About/OverMission";
 
-function App() {
+import About from "./Pages/About/About";
+
+const App = () => {
   return (
-    <>
-      <h1>React App</h1>
-    </>
+    <div>
+      <About />
+      <OverMission />
+    </div>
   );
-}
+};
 
 export default App;
