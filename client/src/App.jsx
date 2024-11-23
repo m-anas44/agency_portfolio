@@ -1,9 +1,10 @@
-import "./App.css";
+import './App.css';
+import Home from '@/Pages/Home/Home';
 
 function App() {
   return (
     <>
-      <h1 className="poppins-bold">React App</h1>
+      <Home />
     </>
   );
 }
