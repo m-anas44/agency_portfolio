@@ -1,14 +1,24 @@
+
+import "./App.css";
+import OverMission from "./assets/About/OverMission";
+
 import './App.css';
+import Home from '@/Pages/Home/Home';
 
-function App() {
 
+import About from "./Pages/About/About";
+
+const App = () => {
   return (
     <>
-      <h1>Welcome to the agency </h1>
-      <p>I am anas</p>
-      <p>you are not zohaib. its me</p>
+    <div>
+      <About />
+      <OverMission />
+    </div>
+    
+      <Home />
     </>
   );
-}
+};
 
 export default App;
