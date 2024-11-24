@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // Reusable Button Component
 const Button = ({ text, onClick, icon }) => (
   <button
-    className='block px-6 py-3 mx-auto text-xl font-medium text-white rounded-full shadow md:inline bg-primary hover:bg-secondary'
+    className='block px-6 py-3 mx-auto text-xl font-medium text-white transition-all duration-300 rounded-full shadow md:inline bg-primary hover:bg-secondary hover:scale-105'
     onClick={onClick}
   >
     {text}

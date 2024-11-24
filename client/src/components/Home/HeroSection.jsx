@@ -17,7 +17,7 @@ const HeroSection = () => {
           </div>
 
           <p className='mt-4 text-2xl text-primary'>
-            We specialize in delivering cutting-edge solutions tailored to your needs. Whether you're looking, we
+            We specialize in delivering cutting-edge solutions tailored to your needs. Whether you&rsquo;re looking, we
             succeed.
           </p>
           <div className='flex gap-4 mt-8'>
