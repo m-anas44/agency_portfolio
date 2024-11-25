@@ -68,10 +68,11 @@ const ProjectSection = () => {
                 </button>
               </div>
 
-              {/* Text Content */}
-              <div className='w-full px-8 py-2 bg-primary'>
-                <h2 className='mt-4 text-xl font-semibold text-white'>{item.title}</h2>
-                <p className='mt-2 text-xl font-bold tracking-wider uppercase text-secondary '>{item.category}</p>
+              <div className='w-full px-8 py-2 overflow-hidden bg-primary'>
+                <h2 className='mt-4 text-xl font-semibold text-white truncate'>{item.title}</h2>
+                <p className='mt-2 text-xl font-bold tracking-wider uppercase truncate text-secondary'>
+                  {item.category}
+                </p>
               </div>
             </div>
           ))}

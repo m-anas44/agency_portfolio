@@ -7,8 +7,7 @@ const testimonials = [
   {
     id: 1,
     title: "It's all about speed",
-    description:
-      'We provide you with a test account that can be set up in seconds. Our main focus is getting responses to you as soon as we can.',
+    description: 'We provide you with a test account that can be set up in seconds. Our main focus is getting you up and running quickly.',
     text: 'Amazing people to work with. Very fast and professional partner.',
     name: 'Josh Grazioso',
     role: 'Director Payments & Risk | Airbnb',
@@ -30,7 +29,7 @@ const testimonials = [
     title: 'Professional and Reliable',
     description:
       'We focus on delivering quality service and a smooth experience for all our clients to build lasting relationships.',
-    text: 'We loved their professionalism and the quality of service they delivered!',
+    text: 'We loved their professionalism and the quality of service they delivered! ',
     name: 'James Anderson',
     role: 'CEO | Innovate Inc.',
     avatar: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=faces&fit=crop&w=320&h=320&q=80',
@@ -58,32 +57,35 @@ const TestimonialSection = () => {
         </h2>
       </div>
       <div className='max-w-[80rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-7 mx-auto  bg-gradient-to-r from-tertiary/90 to-tertiary/90 rounded-lg my-12'>
-        <div className='lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between'>
+        <div className=' lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between'>
           {/* Left Side: Carousel Section */}
           <div className='lg:col-span-5 lg:col-start-1'>
             <Slider {...carouselSettings}>
               {testimonials.map((testimonial) => (
                 <div
-                  className='relative p-4 border border-secondary rounded-lg h-[20rem] flex flex-col justify-between'
+                  className=' p-4 border border-secondary rounded-lg h-[20rem] overflow-auto'
                   key={testimonial.id}
                 >
-                  <h2 className='mb-4 text-3xl font-bold text-secondary'>{testimonial.title}</h2>
-                  <p className='mb-6 text-secondary'>{testimonial.description}</p>
-                  <div className='relative z-10'>
-                    <p className='text-xl italic text-gray-800 '>{testimonial.text}</p>
+                  <div>
+                    <h2 className='mb-4 text-3xl font-bold text-secondary'>{testimonial.title}</h2>
+                    <p className='mb-6 text-secondary'>{testimonial.description}</p>
                   </div>
-                  <footer className='mt-6'>
-                    <div className='flex items-center gap-x-4'>
-                      <div className='shrink-0'>
-                        <img className='w-8 h-8 rounded-full' src={testimonial.avatar} alt={testimonial.name} />
+                  <div className='relative z-10'>
+                    <p className='text-xl italic text-gray-800 max-sm:truncate'>{testimonial.text}</p>
+                  </div>
+                
+                    <footer className='mt-6'>
+                      <div className='flex items-center gap-x-4'>
+                        <div className='shrink-0'>
+                          <img className='w-8 h-8 rounded-full' src={testimonial.avatar} alt={testimonial.name} />
+                        </div>
+                        <div className='grow'>
+                          <div className='font-semibold text-secondary'>{testimonial.name}</div>
+                          <div className='text-xs text-primary'>{testimonial.role}</div>
+                        </div>
                       </div>
-                      <div className='grow'>
-                        <div className='font-semibold text-secondary'>{testimonial.name}</div>
-                        <div className='text-xs text-primary'>{testimonial.role}</div>
-                      </div>
-                    </div>
-                  </footer>
-                </div>
+                    </footer>
+                  </div>
               ))}
             </Slider>
           </div>
