@@ -1,12 +1,21 @@
+
+import "./App.css";
+import OverMission from "./assets/About/OverMission";
+
 import './App.css';
 import Home from '@/Pages/Home/Home';
 
-function App() {
+
+import About from "./Pages/About/About";
+
+const App = () => {
   return (
     <>
-     
+   
+    
+    
     </>
   );
-}
+};
 
 export default App;
