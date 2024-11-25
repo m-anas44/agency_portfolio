@@ -11,12 +11,9 @@ import About from "./Pages/About/About";
 const App = () => {
   return (
     <>
-    <div>
-      <About />
-      <OverMission />
-    </div>
+   
     
-      <Home />
+    
     </>
   );
 };
