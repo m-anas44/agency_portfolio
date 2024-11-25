@@ -1,39 +1,36 @@
-import Pic3 from "@/assets/About/pic3.png";
+import Pic1 from "../../assets/About/pic1.png";
 
-const About = () => {
+const AboutSection = () => {
   return (
-    <div className="bg-gradient-to-b from-green-50 bg-white py-1999">
-      <section className="py-10 sm:py-16 lg:py-24">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <h1 className="text-[70px] font-bold text-black sm:text-6xl lg:text-7xl text-center">
-                Our Journey to a leading
-                <span className="text-[#0EBAB1] text-[70px]">
-                  Software Development Partner
-                </span>
-              </h1>
-
-              <div className="mt-10 sm:flex sm:items-center sm:space-x-8"></div>
-            </div>
-
-            {/* Upper Image */}
-
-            <div className="flex-1 flex items-center justify-center gap-6 relative ">
-              <div className="py-23">
-                <img
-                  src={Pic3}
-                  alt="Team working"
-                  className="w-full h-full object-cover "
-                />
-              </div>
-            </div>
+    <section
+      className="bg-gradient-to-b from-tertiary bg-white py-10"
+      aria-labelledby="about-heading"
+    >
+      <div className="container px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+          {/* Content Section */}
+          <div>
+            <h1
+              id="about-heading"
+              className="text-[42px] font-bold text-secondary lg:text-[70px] leading-[46px] lg:leading-[77px] max-sm:text-center"
+            >
+              Our Journey to a leading{" "}
+              <span className="text-primary">Software Development Partner</span>
+            </h1>
           </div>
-          {/* <OverMission /> */}
+
+          {/* Image Section */}
+          <div className="flex items-center justify-center relative">
+            <img
+              src={Pic1}
+              alt="Team collaborating on a software project"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
-export default About;
+export default AboutSection;
