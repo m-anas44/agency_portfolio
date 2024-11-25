@@ -1,19 +1,10 @@
-
 import "./App.css";
-import OverMission from "./assets/About/OverMission";
-
-import './App.css';
-import Home from '@/Pages/Home/Home';
-
-
-import About from "./Pages/About/About";
+import Home from "@/Pages/Home/Home";
 
 const App = () => {
   return (
     <>
-   
-    
-    
+      <Home />
     </>
   );
 };
