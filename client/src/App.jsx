@@ -1,12 +1,47 @@
-import './App.css';
-import Home from '@/Pages/Home/Home';
+import { Home, About, Contact, AllServices, Pricing, Blog, AllProjects } from './Pages/index';
+import Layout from './Layout';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+// Create the router object with nested routes
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+      {
+        path: 'services',
+        element: <AllServices />,
+      },
+      {
+        path: 'pricing',
+        element: <Pricing />,
+      },
+      {
+        path: 'blog',
+        element: <Blog />,
+      },
+      {
+        path: 'projects',
+        element: <AllProjects />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-     
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

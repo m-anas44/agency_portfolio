@@ -48,7 +48,7 @@ const TestimonialSection = () => {
   };
 
   return (
-    <section>
+    <section className='16'>
       {/* Section Header */}
       <div>
         <p className='text-xl font-bold text-center text-secondary'>Testimonial</p>
@@ -62,10 +62,7 @@ const TestimonialSection = () => {
           <div className='lg:col-span-5 lg:col-start-1'>
             <Slider {...carouselSettings}>
               {testimonials.map((testimonial) => (
-                <div
-                  className=' p-4 border border-secondary rounded-lg h-[20rem] overflow-auto'
-                  key={testimonial.id}
-                >
+                <div className=' p-4 border border-secondary rounded-lg h-[20rem] overflow-auto' key={testimonial.id}>
                   <div>
                     <h2 className='mb-4 text-3xl font-bold text-secondary'>{testimonial.title}</h2>
                     <p className='mb-6 text-secondary'>{testimonial.description}</p>
@@ -73,19 +70,19 @@ const TestimonialSection = () => {
                   <div className='relative z-10'>
                     <p className='text-xl italic text-gray-800 max-sm:truncate'>{testimonial.text}</p>
                   </div>
-                
-                    <footer className='mt-6'>
-                      <div className='flex items-center gap-x-4'>
-                        <div className='shrink-0'>
-                          <img className='w-8 h-8 rounded-full' src={testimonial.avatar} alt={testimonial.name} />
-                        </div>
-                        <div className='grow'>
-                          <div className='font-semibold text-secondary'>{testimonial.name}</div>
-                          <div className='text-xs text-primary'>{testimonial.role}</div>
-                        </div>
+
+                  <footer className='mt-6'>
+                    <div className='flex items-center gap-x-4'>
+                      <div className='shrink-0'>
+                        <img className='w-8 h-8 rounded-full' src={testimonial.avatar} alt={testimonial.name} />
                       </div>
-                    </footer>
-                  </div>
+                      <div className='grow'>
+                        <div className='font-semibold text-secondary'>{testimonial.name}</div>
+                        <div className='text-xs text-primary'>{testimonial.role}</div>
+                      </div>
+                    </div>
+                  </footer>
+                </div>
               ))}
             </Slider>
           </div>

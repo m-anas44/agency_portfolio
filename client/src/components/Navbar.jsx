@@ -56,14 +56,14 @@ const Navbar = () => {
             <div className='relative flex items-center gap-4'>
               <div className='sm:flex sm:gap-4'>
                 <button
-                  className='flex items-center px-5 py-2 text-xl font-medium rounded-full text-tertiary bg-primary hover:bg-tertiary hover:text-primary group'
+                  className='flex items-center px-5 py-2 text-base font-medium rounded-full sm:text-xl text-tertiary bg-primary hover:bg-tertiary hover:text-primary group'
                   onClick={() => navigate('/contact')}
                 >
                   {/* Ping effect */}
                   <div className='absolute right-[5px] -top-[1px] md:block hidden'>
-                    <span class='relative flex h-3 w-3'>
-                      <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary group-hover:bg-primary  opacity-75'></span>
-                      <span class='relative inline-flex rounded-full h-3  w-3 bg-tertiary group-hover:bg-primary'></span>
+                    <span className='relative flex w-3 h-3'>
+                      <span className='absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-tertiary group-hover:bg-primary'></span>
+                      <span className='relative inline-flex w-3 h-3 rounded-full bg-tertiary group-hover:bg-primary'></span>
                     </span>
                   </div>
                   Get in Touch

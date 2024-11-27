@@ -31,7 +31,7 @@ const ProjectSection = () => {
   ];
 
   return (
-    <section className='px-6 py-12 bg-white md:px-20'>
+    <section className='container px-6 py-16 mx-auto md:px-12 lg:px-20'>
       {/* Header Section */}
       <div className='flex flex-col justify-between md:items-center md:flex-row'>
         <div>
@@ -51,7 +51,7 @@ const ProjectSection = () => {
       </div>
 
       {/* Portfolio Grid */}
-      <div className='container py-5 mx-auto px-'>
+      <div className='container py-5 mx-auto'>
         <div className='grid grid-cols-1 gap-8 mt-8 lg:mt-8 lg:gap-12 lg:grid-cols-2 '>
           {portfolioItems.map((item) => (
             <div
