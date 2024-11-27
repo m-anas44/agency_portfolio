@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // Reusable Button Component
 const Button = ({ text, onClick, icon }) => (
   <button
-    className='block px-6 py-3 mx-auto text-xl font-medium text-white rounded-full shadow md:inline bg-primary hover:bg-secondary'
+    className='block px-6 py-3 mx-auto text-xl font-medium text-white transition-all duration-300 rounded-full shadow md:inline bg-primary hover:bg-secondary hover:scale-105'
     onClick={onClick}
   >
     {text}
@@ -76,14 +76,14 @@ const PricingSection = () => {
 
         {/* Right Section */}
         <div className='p-8 bg-white rounded-lg shadow-xl'>
-          <div className='flex items-center justify-between'>
-            <div>
+          <div className='flex flex-col items-center justify-between md:flex-row'>
+            <div className='flex flex-row items-center justify-between md:flex-col'>
               <h3 className='text-xl font-semibold text-secondary/90'>Affordable Plans</h3>
-              <h2 className='mt-2 text-5xl font-bold text-secondary/90'>
-                $10 <span className='text-xl font-medium'>/ hr</span>
+              <h2 className='flex items-end justify-between mt-2 text-5xl font-bold text-secondary/90'>
+                $10 <p className='text-xl font-medium'>/hr</p>
               </h2>
             </div>
-            <div className=''>
+            <div className='mt-4 md:mt-0'>
               <Button text='Let&rsquo;s Talk' icon={arrowIcon} onClick={() => navigate('/contact')} />
             </div>
           </div>
