@@ -2,7 +2,7 @@ import { Home, About, Contact, AllServices, Pricing, Blog, AllProjects } from '.
 import Layout from './Layout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// Create the router object with nested routes
+// Create the router configuration
 const router = createBrowserRouter([
   {
     path: '/',
