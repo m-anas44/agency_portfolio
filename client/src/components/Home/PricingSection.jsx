@@ -75,10 +75,11 @@ const PricingSection = () => {
         </div>
 
         {/* Right Section */}
-        <div className='p-8 bg-white rounded-lg shadow-xl'>
+        <div className='p-4 bg-white rounded-lg shadow-xl sm:p-8'>
           <div className='flex flex-col items-center justify-between md:flex-row'>
-            <div className='flex flex-row items-center justify-between md:flex-col'>
-              <h3 className='text-xl font-semibold text-secondary/90'>Affordable Plans</h3>
+            <div className='flex flex-row items-center justify-between max-md:gap-10 md:flex-col'>
+
+                <h3 className='text-xl font-semibold text-secondary/90'>Affordable Plans</h3>
               <h2 className='flex items-end justify-between mt-2 text-5xl font-bold text-secondary/90'>
                 $10 <p className='text-xl font-medium'>/hr</p>
               </h2>

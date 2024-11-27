@@ -4,7 +4,7 @@ import { Button } from '@/components/SharedComponents/index';
 
 const HeroSection = () => {
   return (
-    <section className='px-8 py-12 text-primary bg-tertiary'>
+    <section className='px-8 py-12 lg:px-20 text-primary bg-tertiary'>
       <div className='container grid grid-cols-1 gap-12 mx-auto items-cente3 lg:grid-cols-2'>
         {/* Left Section */}
         <div className=''>
@@ -24,7 +24,7 @@ const HeroSection = () => {
             <Button className='text-lg text-white transition rounded-md xs:text-xl bg-primary hover:bg-secondary hover:text-primary'>
               About Us
             </Button>
-            <Button className='text-lg transition-all bg-transparent border rounded-md xs:text-xl border-primary text-primary hover:bg-secondary hover:text-tertiary'>
+            <Button className='text-base transition-all bg-transparent border rounded-md xs:text-xl border-primary text-primary hover:bg-secondary hover:text-tertiary'>
               Our Services
             </Button>
           </div>
@@ -32,7 +32,7 @@ const HeroSection = () => {
 
         {/* Right Section */}
         <div className='grid grid-cols-1 gap-4'>
-          <img src={HeroImage} alt='' className='w-[500px]' />
+          <img src={HeroImage} alt='' className='w-[500px] ml-auto' />
         </div>
       </div>
     </section>

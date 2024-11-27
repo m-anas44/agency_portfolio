@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/SharedComponents/index';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const BlogSection = () => {
   const cards = [
     {
