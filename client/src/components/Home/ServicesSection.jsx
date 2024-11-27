@@ -22,8 +22,8 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white text-primary">
-      <div className="container px-6 mx-auto md:px-12 lg:px-20">
+    <section className="py-16 px-6 lg:px-20 bg-white text-primary">
+      <div className="container">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-between mb-10 md:flex-row">
           <div>
