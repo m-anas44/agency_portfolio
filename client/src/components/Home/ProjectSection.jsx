@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/SharedComponents/index";
 import { sanityClient } from "@/lib/sanityClient";
@@ -46,8 +47,9 @@ const ProjectSection = () => {
           >
             See All Projects
           </Button>
+
         </div>
-      </div>
+
 
       {/* Portfolio Grid */}
       <div className="container py-5 mx-auto">
@@ -78,9 +80,10 @@ const ProjectSection = () => {
                   {item.title}
                 </h2>
                 <p className="text-secondary mt-1">{item.description}</p>
+
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

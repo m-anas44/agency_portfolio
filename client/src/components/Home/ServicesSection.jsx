@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/SharedComponents/index";
 import { sanityClient } from "@/lib/sanityClient";
+
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -21,11 +23,15 @@ const Services = () => {
       .catch((err) => console.error("Failed to fetch services:", err));
   }, []);
 
+  const navigate = useNavigate();
+
   return (
+
     <section className="py-16 px-6 lg:px-20 bg-white text-primary">
       <div className="container">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-between mb-10 md:flex-row">
+
           <div>
             <p className="text-xl font-bold text-secondary">Our Services</p>
             <h2 className="mt-4 text-4xl font-bold md:mt-1">
@@ -34,13 +40,27 @@ const Services = () => {
           </div>
           <div>
             <Button
+
+         
               className="mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
               onClick={() => {}}
+
             >
               All Services
             </Button>
           </div>
-        </div>
+        </header>
+
+        {/* Services Grid */}
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {services.map((service, index) => (
+            <article
+              key={index}
+              className='relative flex flex-col justify-between p-6 overflow-hidden duration-300 border rounded-lg shadow-lg border-secondary/50 group text-secondary group-hover:border-primary hover:scale-105'
+            >
+              {/* Sliding Overlay */}
+              <div className='absolute inset-0 transition-all duration-500 ease-in-out bg-primary/80 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-100%]'></div>
+
 
         {/* Services Grid */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,6 +110,7 @@ const Services = () => {
                 </button>
               </Link>
             </div>
+
           ))}
         </div>
       </div>
