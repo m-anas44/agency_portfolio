@@ -30,7 +30,7 @@ const ProjectSection = () => {
   }, []);
 
   return (
-    <section className='container px-6 py-16 mx-auto md:px-12 lg:px-20'>
+    <section className='px-6 py-16 md:px-12 lg:px-20'>
       {/* Header Section */}
       <div className='flex flex-col justify-between md:items-center md:flex-row'>
         <div>
