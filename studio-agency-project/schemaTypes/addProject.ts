@@ -15,7 +15,7 @@ export const addProject = defineType({
             name: "description",
             type: "text",
             title: "Description",
-            validation: (rule) => rule.required().max(100),
+            validation: (rule) => rule.required().max(200),
         }),
         defineField({
             name: "slug",
