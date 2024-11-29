@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import HeroSection from '@/components/Pricing/HeroSection';
+import PlansSection from '@/components/Pricing/PlansSection';
+import FaqsSection from '@/components/Pricing/FaqsSection';
+import ContactusSection from '@/components/Pricing/ContactusSection';
 
-const Pricing = () => {
+const PricingPage = () => {
   return (
-    <div>
-      Pricing page
+    <div className='bg-tertiary/20'>
+      <HeroSection />
+      <PlansSection />
+      <FaqsSection />
+      <ContactusSection />
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default PricingPage;
