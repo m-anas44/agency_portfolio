@@ -1,8 +1,8 @@
-import { Button } from '@/components/SharedComponents/index';
-import { sanityClient } from '@/lib/sanityClient';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+
+import React, { useEffect, useState } from "react";
+import { Button } from "@/components/SharedComponents/index";
+import { sanityClient } from "@/lib/sanityClient";
+import { Link } from "react-router-dom";
 
 const ProjectSection = () => {
   const navigate = useNavigate();
@@ -43,13 +43,14 @@ const ProjectSection = () => {
         </div>
         <div>
           <Button
-            className='block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
-            onClick={() => navigate('/projects')}
+            className="block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+            onClick={() => {}}
           >
             See All Projects
           </Button>
         </div>
-      </div>
+
+
       {/* Portfolio Grid */}
       <div className='container py-5 mx-auto'>
         <div className='grid grid-cols-1 gap-8 mt-8 lg:mt-8 lg:gap-12 lg:grid-cols-2 '>

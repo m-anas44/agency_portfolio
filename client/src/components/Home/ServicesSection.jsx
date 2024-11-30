@@ -37,8 +37,11 @@ const Services = () => {
           </div>
           <div>
             <Button
-              className='mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
+
+         
+              className="mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
               onClick={() => {}}
+
             >
               All Services
             </Button>
