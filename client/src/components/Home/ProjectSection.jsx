@@ -1,10 +1,11 @@
-
-import React, { useEffect, useState } from "react";
-import { Button } from "@/components/SharedComponents/index";
-import { sanityClient } from "@/lib/sanityClient";
-import { Link } from "react-router-dom";
+import { Button } from '@/components/SharedComponents/index';
+import { sanityClient } from '@/lib/sanityClient';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectSection = () => {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
 
   // Fetch portfolio data from Sanity
@@ -23,7 +24,7 @@ const ProjectSection = () => {
         const data = await sanityClient.fetch(query);
         setProjects(data);
       } catch (error) {
-        console.error("Error fetching portfolio items:", error);
+        console.error('Error fetching portfolio items:', error);
       }
     };
 
@@ -43,7 +44,7 @@ const ProjectSection = () => {
         <div>
           <Button
             className='block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
-            onClick={() => {}}
+            onClick={() => navigate('/projects')}
           >
             See All Projects
           </Button>
