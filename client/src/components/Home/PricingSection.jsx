@@ -6,6 +6,7 @@ const Button = ({ text, onClick, icon }) => (
   <button
     className='block px-6 py-3 mx-auto text-xl font-medium text-white transition-all duration-300 rounded-full shadow md:inline bg-primary hover:bg-secondary hover:scale-105'
     onClick={onClick}
+    aria-label={text} // Added aria-label for accessibility
   >
     {text}
     {icon && <span className='inline-block ml-1'>{icon}</span>}
@@ -55,7 +56,7 @@ const PricingSection = () => {
     <section className='px-6 py-16 bg-gradient-to-t from-teal-300 via-teal-50 to-white lg:px-20'>
       <div className='grid gap-10 md:grid-cols-2'>
         {/* Left Section */}
-        <div>
+        <article>
           <h1 className='text-2xl font-bold leading-tight sm:text-4xl text-secondary/90'>
             Empowering businesses with <span className='leading-tight text-primary'>modern technology</span> to create
             solutions that deliver <span className='leading-tight text-primary'>results you can rely on.</span>
@@ -72,12 +73,12 @@ const PricingSection = () => {
             <Stat value='Innovative' label='Approach' />
             <Stat value='Client-First' label='Focus' />
           </div>
-        </div>
+        </article>
 
         {/* Right Section */}
-        <div className='p-8 bg-white rounded-lg shadow-xl'>
+        <article className='p-4 bg-white rounded-lg shadow-xl sm:p-8'>
           <div className='flex flex-col items-center justify-between md:flex-row'>
-            <div className='flex flex-row items-center justify-between md:flex-col'>
+            <div className='flex flex-row items-center justify-between max-md:gap-10 md:flex-col'>
               <h3 className='text-xl font-semibold text-secondary/90'>Affordable Plans</h3>
               <h2 className='flex items-end justify-between mt-2 text-5xl font-bold text-secondary/90'>
                 $10 <p className='text-xl font-medium'>/hr</p>
@@ -99,7 +100,7 @@ const PricingSection = () => {
             <ListItem title='Agile Team' description='Our team ensures smooth work.' />
             <ListItem title='Scalable Results' description='Solutions that grow with you.' />
           </ul>
-        </div>
+        </article>
       </div>
     </section>
   );
