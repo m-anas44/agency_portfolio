@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/SharedComponents/index";
@@ -27,6 +28,7 @@ const Services = () => {
   return (
     <section className="px-6 py-16 bg-white lg:px-20 text-primary">
       <div className="container">
+
         {/* Section Header */}
         <div className="flex flex-col items-center justify-between mb-10 md:flex-row">
           <div>
@@ -38,6 +40,7 @@ const Services = () => {
           <div>
             <Button
               className="mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+
               onClick={() => navigate("/services")}
             >
               All Services
@@ -46,6 +49,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
+
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <div
@@ -82,12 +86,14 @@ const Services = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="inline-block w-5 h-5 ml-2"
+
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     viewBox="0 0 24 24"
+
                     aria-hidden="true"
-                  >
+                 >
                     <path
                       d="M5 12h14M12 5l7 7-7 7"
                       strokeLinecap="round"
@@ -97,8 +103,10 @@ const Services = () => {
                 </button>
               </Link>
 
+
               {/* Decorative Background Circle */}
               <div className="absolute w-48 h-32 rounded-full -bottom-4 -right-6 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
+
             </div>
           ))}
         </div>
