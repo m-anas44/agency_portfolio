@@ -1,37 +1,37 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { FontAwesomeIcon } from "@/fontawesome/react-fontawesome";
-// import {
-//   faUsers,
-//   faGift,
-//   faChartLine,
-//   faHouseUser,
-// } from "@/fontawesome/free-solid-svg-icons";
+import { Button } from "@/components/SharedComponents/index";
+import {
+  faUsers,
+  faGift,
+  faChartLine,
+  faHouseUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const features = [
   {
-    // icon: <FontAwesomeIcon icon={faUsers} className="w-8 h-8 text-blue-500" />,
+    icon: <FontAwesomeIcon icon={faUsers} className="w-8 h-8 text-blue-500" />,
     title: "Team-Oriented Workplace Culture",
     description:
       "At PF, we cultivate a working culture that encourages teamwork and collaboration among team members to work towards achieving set goals.",
   },
   {
-    // icon: <FontAwesomeIcon icon={faGift} className="w-8 h-8 text-blue-500" />,
+    icon: <FontAwesomeIcon icon={faGift} className="w-8 h-8 text-blue-500" />,
     title: "Employees' Perks & Benefits",
     description:
       "Programmers Force takes excellent care of its employees. Therefore, we have developed various beneficial plans for our employees to motivate them and maintain their morale, including annual trips.",
   },
   {
-    // icon: (
-    //   <FontAwesomeIcon icon={faChartLine} className="w-8 h-8 text-blue-500" />
-    // ),
+    icon: (
+      <FontAwesomeIcon icon={faChartLine} className="w-8 h-8 text-blue-500" />
+    ),
     title: "Opportunities for Growth",
     description:
       "We believe in empowering the youth and young thinkers! At PF, we hire individuals based on their potential and provide them with on-site training and career-growth opportunities to promote professional growth.",
   },
   {
-    // icon: (
-    //   <FontAwesomeIcon icon={faHouseUser} className="w-8 h-8 text-blue-500" />
-    // ),
+    icon: (
+      <FontAwesomeIcon icon={faHouseUser} className="w-8 h-8 text-blue-500" />
+    ),
     title: "Great Work-Life Balance",
     description:
       "Here at PF, we foster a healthy work-life balance to avoid mental burnout and promote greater productivity by arranging on-site events, annual trips, and much more.",
@@ -50,14 +50,17 @@ const FeatureCards = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white border border-blue-500 rounded-lg p-6 flex items-start gap-4 shadow-md hover:shadow-xl transition transform hover:scale-105"
+              className="bg-white  border-blue-500  p-6 flex items-start gap-4 hover:shadow-xl transition transform 
+              duration-300 border rounded-lg shadow-lg border-secondary/50 group text-secondary group-hover:border-primary hover:scale-105"
             >
-              <div className="flex-shrink-0">{feature.icon}</div>
+              <div className="absolute inset-0 transition-all duration-500 ease-in-out bg-primary/80 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-100%]"></div>
+
+              <div className="flex-shrink-0 ">{feature.icon}</div>
               <div>
-                <h3 className="text-lg sm:text-base font-semibold text-gray-800">
+                <h3 className="text-[20px] sm:text-base font-semibold text-black">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-[16px] text-black">
                   {feature.description}
                 </p>
               </div>
@@ -66,12 +69,12 @@ const FeatureCards = () => {
         </div>
 
         <div className="text-center mt-10">
-          <button
-            className="bg-green-500 text-white py-3 px-12 sm:px-6 sm:py-2 rounded-md hover:bg-green-600 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-300 ease-in-out text-lg sm:text-base"
-            aria-label="Apply Now"
+          <Button
+            className="mt-4 text-md transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+            onClick={() => {}}
           >
             Apply Now
-          </button>
+          </Button>
         </div>
       </div>
     </section>

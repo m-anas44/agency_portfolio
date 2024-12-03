@@ -2,7 +2,7 @@ import Pic3 from "../../assets/About/pic3.png";
 
 const OurVision = () => {
   return (
-    <section className="text-gray-600 body-font mt-10">
+    <section className="text-gray-600 body-font mt-[15px] sm:mt-[12px]">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         {/* Image Section */}
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -15,7 +15,7 @@ const OurVision = () => {
         {/* Content Section */}
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left ">
           <div>
-            <p className="text-primary landing-[12px]">
+            <p className="text-primary  hover:text-primary landing-[12px]">
               When you choose Devsinc, youre choosing
             </p>
             <h1 className="font-bold sm:text-[80px] text-[40px] mb-4 leading-[44px] sm:leading-[90px] text-gray-900 mt-5">

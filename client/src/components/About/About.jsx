@@ -12,7 +12,7 @@ const AboutSection = () => {
           <div>
             <h1
               id="about-heading"
-              className="text-[42px] font-bold text-secondary lg:text-[70px] leading-[46px] lg:leading-[77px] max-sm:text-center"
+              className="text-[38px] font-bold text-secondary lg:text-[56px] leading-[46px] lg:leading-[77px] max-sm:text-center"
             >
               Our Journey to a leading{" "}
               <span className="text-primary">Software Development Partner</span>

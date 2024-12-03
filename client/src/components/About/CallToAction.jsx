@@ -1,3 +1,4 @@
+import { Button } from "@/components/SharedComponents/index";
 const CallToAction = () => {
   return (
     <section className="py-16 bg-gray-100" aria-labelledby="cta-heading">
@@ -13,12 +14,12 @@ const CallToAction = () => {
         </h2>
 
         {/* Apply Button */}
-        <button
-          className="bg-blue-600 text-white px-8 py-3 text-lg rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300"
-          aria-label="Apply now to join Pakistan's First AI Company"
+        <Button
+          className="mt-4 text-md transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+          onClick={() => {}}
         >
-          APPLY NOW
-        </button>
+          Apply Now
+        </Button>
       </div>
     </section>
   );

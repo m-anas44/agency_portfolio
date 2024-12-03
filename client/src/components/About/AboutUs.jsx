@@ -1,4 +1,6 @@
 import StatsCard from "./StatsCard";
+import Pic2 from "@/assets/About/pic2.png";
+import { Button } from "@/components/SharedComponents/index";
 
 const AboutUs = () => {
   return (
@@ -6,29 +8,30 @@ const AboutUs = () => {
       <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
         {/* Content Section */}
         <article>
-          <h1
-            id="about-us-heading"
-            className="text-3xl md:text-5xl font-medium text-gray-900 leading-tight"
-          >
-            TechSpirex helps start-ups, SMEs, and enterprises grow their
-            business
+          <h1 className="text-[24px] sm:text-[36px] md:text-5xl font-bold text-gray-900 leading-tight">
+            <span className="text-primary">
+              TechSpirex helps start-ups,SMEs, and{" "}
+            </span>
+            <span>enterprises grow their business</span>
           </h1>
-          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+          <p className="mt-4 text-[20px] text-gray-600">
             Since 2000, we've taken pride in delivering high-quality, customized
             services to help businesses build, grow, and transform.
           </p>
-          <button
-            className="mt-8 bg-teal-500 text-white px-6 py-3 rounded-full text-lg font-semibold border-2 border-teal-500 hover:bg-white hover:text-teal-500 transition-all"
-            aria-label="Learn more about Devsinc services"
-          >
-            Learn More
-          </button>
+          <div className="flex justify-start sm:justify-start">
+            <Button
+              className="mt-[15px] sm:mt-[22px] text-lg  transition-all duration-200 rounded-md drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+              onClick={() => {}}
+            >
+              Learn More
+            </Button>
+          </div>
         </article>
 
         {/* Image and Stats Section */}
         <div className="space-y-8">
           <img
-            src="https://cdn.prod.website-files.com/65e9d802e7334ec910a26e59/65e9d803e7334ec910a26f2c_Who%20we%20are%20(1).webp"
+            src={Pic2}
             alt="Devsinc team working collaboratively on a project"
             className="rounded-lg shadow-lg w-full"
           />

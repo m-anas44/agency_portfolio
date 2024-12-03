@@ -1,12 +1,17 @@
+import { Button } from "@/components/SharedComponents/index";
+
 const OurMission = () => {
   return (
-    <section className="bg-[#001F29] py-16 px-5 sm:px-12 lg:px-24 text-white">
+    <section className="bg-[#001F29] py-16 px-5 sm:px-12 lg:px-24 text-white mt-[15px] sm:mt-[22px]">
       <article className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <header className="flex justify-start mb-6">
-          <span className="bg-secondary text-white text-[18px] sm:text-[16px]  landing-[27px] sm:leading-[27px] font-medium px-4 py-2 rounded-md">
+        <header className="flex justify-center  sm:justify-start mb-6">
+          <Button
+            className="mt-4 text-lg   transition-all duration-200 rounded-md drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+            onClick={() => {}}
+          >
             Our Mission
-          </span>
+          </Button>
         </header>
 
         {/* Section Content */}
