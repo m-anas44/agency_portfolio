@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/SharedComponents/index';
 import { sanityClient } from '@/lib/sanityClient';
 import { Link } from 'react-router-dom';
+
 import { useNavigate } from 'react-router-dom';
+
 
 const ProjectSection = () => {
   const navigate = useNavigate();
@@ -32,7 +34,9 @@ const ProjectSection = () => {
   }, []);
 
   return (
+
     <section className='container px-6 py-16 mx-auto md:px-12 lg:px-20'>
+
       {/* Header Section */}
       <div className='flex flex-col justify-between md:items-center md:flex-row'>
         <div>
@@ -44,10 +48,12 @@ const ProjectSection = () => {
         <div>
           <Button
             className='block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
+
             onClick={() => {
               navigate('/projects');
               window.scrollTo(0, 0);
             }}
+
           >
             See All Projects
           </Button>

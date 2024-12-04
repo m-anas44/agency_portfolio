@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/SharedComponents/index';
 import { sanityClient } from '@/lib/sanityClient';
 import { useNavigate } from 'react-router-dom';
+
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -12,7 +14,7 @@ const Services = () => {
     description,
     status,
     slug,
-    "icon": image.asset->url // Fetch the image URL for the icon
+    "image": image.asset->url
   }`;
 
   useEffect(() => {
@@ -25,10 +27,12 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
+
     <section className='px-6 py-16 bg-white lg:px-20 text-primary'>
       <div className='container'>
         {/* Section Header */}
         <div className='flex flex-col items-center justify-between mb-10 md:flex-row'>
+
           <div>
             <p className='text-xl font-bold text-secondary'>Our Services</p>
             <h2 className='mt-4 text-4xl font-bold md:mt-1'>
@@ -37,11 +41,13 @@ const Services = () => {
           </div>
           <div>
             <Button
+
               className='mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
               onClick={() => {
                 navigate('/services');
                 window.scrollTo(0, 0);
               }}
+
             >
               All Services
             </Button>
@@ -49,42 +55,68 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+
+
+
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <article
+            <div
               key={index}
-              className='relative flex flex-col justify-between p-6 overflow-hidden duration-300 border rounded-lg shadow-lg border-secondary/50 group text-secondary group-hover:border-primary hover:scale-105'
+              className="relative flex flex-col justify-between p-8 transition-transform duration-500 bg-white border border-gray-200 shadow-lg rounded-xl group hover:scale-105 hover:shadow-2xl"
+              aria-label={`Service: ${service.title}`}
             >
-              {/* Sliding Overlay */}
-              <div className='absolute inset-0 transition-all duration-500 ease-in-out bg-primary/80 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-100%]'></div>
-
-              {/* Content */}
-              <div className='relative z-10'>
-                <div className='mb-4 text-4xl text-secondary'>
-                  <img src={service.icon} alt={service.title} className='object-contain w-16 h-16' />
-                </div>
-
-                <h3 className='mb-2 text-xl font-bold'>{service.title}</h3>
-
-                <p className='mb-4'>{service.description}</p>
+              {/* Image */}
+              <div className="mb-6 transition-transform duration-500 group-hover:scale-105">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="object-cover w-16 h-16 rounded-lg"
+                />
               </div>
 
-              <Link className='relative z-10 flex items-center' to={`/service-detail/${service.slug.current}`}>
-                <button className='flex items-center gap-1 px-3 py-2 border rounded-full drop-shadow-xl group-hover:primary/70 border-secondary group-hover:bg-white'>
-                  <span className='text-sm text-secondary '>Read more</span>
+              {/* Title */}
+              <h3 className="mb-4 text-2xl font-bold text-secondary group-hover:text-primary">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mb-6 text-gray-600 group-hover:text-gray-700">
+                {service.description}
+              </p>
+
+              {/* Call-to-Action */}
+              <Link
+                to="/service-detail"
+                aria-label={`Learn more about ${service.title}`}
+              >
+                <button className="relative px-6 py-3 mt-auto font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-primary hover:bg-secondary hover:-translate-y-2">
+                  Learn More
                   <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='w-5 h-5 text-secondary'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M5 12h14M12 5l7 7-7 7' strokeLinecap='round' strokeLinejoin='round' />
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="inline-block w-5 h-5 ml-2"
+
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+
+                    aria-hidden="true"
+                 >
+                    <path
+                      d="M5 12h14M12 5l7 7-7 7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </Link>
-            </article>
+
+
+              {/* Decorative Background Circle */}
+              <div className="absolute w-48 h-32 rounded-full -bottom-4 -right-6 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
+
+            </div>
           ))}
         </div>
       </div>
