@@ -38,7 +38,10 @@ const Services = () => {
           <div>
             <Button
               className='mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
-              onClick={() => navigate('/services')}
+              onClick={() => {
+                navigate('/services');
+                window.scrollTo(0, 0);
+              }}
             >
               All Services
             </Button>

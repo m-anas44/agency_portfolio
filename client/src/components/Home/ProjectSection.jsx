@@ -44,7 +44,10 @@ const ProjectSection = () => {
         <div>
           <Button
             className='block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
-            onClick={() => navigate('/projects')}
+            onClick={() => {
+              navigate('/projects');
+              window.scrollTo(0, 0);
+            }}
           >
             See All Projects
           </Button>

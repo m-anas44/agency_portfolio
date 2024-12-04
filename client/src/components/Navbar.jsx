@@ -4,7 +4,7 @@ import Logo from '@/assets/Logo.png';
 import { useNavigate } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'About', to: '/about' },
+  { name: 'About', to: '/aboutUs' },
   { name: 'Contact', to: '/contact' },
   { name: 'Pricing', to: '/pricing' },
   { name: 'Blog', to: '/blog' },
@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <header className='bg-secondary'>
       {!menuOpen && (
-        <div className='max-w-screen-xl px-4 py-2 mx-auto sm:px-6 lg:px-8'>
+        <div className='px-4 py-2 mx-auto max-w-screen-2xl sm:px-6 lg:px-20'>
           <div className='flex items-center justify-between h-16'>
             {/* Logo */}
             <div className='mt-3'>

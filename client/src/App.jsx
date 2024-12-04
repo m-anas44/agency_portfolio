@@ -1,5 +1,4 @@
-
-import { Home, About, Contact, AllServices, Pricing, Blog, AllProjects } from './Pages/index';
+import { Home, About, Contact, AllServices, Pricing, Blog, BlogDetail, AllProjects } from './Pages/index';
 import Layout from './Layout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'about',
+        path: 'aboutUs',
         element: <About />,
       },
       {
@@ -32,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'blog',
         element: <Blog />,
+      },
+      {
+        path: 'blog/:id', // Corrected path with :id
+        element: <BlogDetail />,
       },
       {
         path: 'projects',
