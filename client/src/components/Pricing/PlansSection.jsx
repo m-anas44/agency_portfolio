@@ -71,7 +71,7 @@ const PlansSection = () => {
       {pricingPlans.map((category, index) => (
         <div key={index} className='max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:px-8'>
           <h2 className='mb-8 text-3xl font-extrabold text-secondary'>{category.title}</h2>
-          <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+          <div className='grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-3'>
             {category.plans.map((plan, idx) => (
               <div
                 key={idx}
@@ -83,10 +83,10 @@ const PlansSection = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className='relative z-10'>
+                <div className='relative z-10 flex flex-col h-full'>
                   <h3 className='text-xl font-semibold text-white'>{plan.name}</h3>
                   <p className='mt-4 text-4xl font-extrabold text-white'>{plan.price}</p>
-                  <ul className='mt-6 space-y-4 text-white'>
+                  <ul className='mt-6 space-y-4 text-white flex-1'>
                     {plan.features.map((feature, i) => (
                       <li key={i} className='flex items-center space-x-3'>
                         <span className='text-white'>
