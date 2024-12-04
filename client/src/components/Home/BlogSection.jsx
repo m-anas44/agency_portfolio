@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/SharedComponents/index';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const BlogSection = () => {
   const cards = [
     {
@@ -29,6 +30,7 @@ const BlogSection = () => {
         'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80',
     },
   ];
+  const navigate = useNavigate();
 
   return (
     <section>
@@ -43,7 +45,10 @@ const BlogSection = () => {
         <div>
           <Button
             className='block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
-            onClick={() => {}}
+            onClick={() => {
+              navigate('/blog');
+              window.scrollTo(0, 0);
+            }}
           >
             See All Blog
           </Button>
