@@ -15,8 +15,8 @@ const AboutPage = () => {
         <OurMission />
         <AboutUs />
         <OurVision />
+        <FeatureCards />  
         <TeamLeads />
-        <FeatureCards />
         <CallToAction />
         <StatsCard />
       </>

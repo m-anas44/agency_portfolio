@@ -1,32 +1,32 @@
-import Pic1 from "../../assets/About/pic1.png";
-// about section
+import Video from '../../assets/About/AboutUSVideo.mp4';
+
 const AboutSection = () => {
   return (
     <section
-      className="bg-gradient-to-b from-tertiary bg-white py-10"
-      aria-labelledby="about-heading"
+      className='relative py-20 bg-white bg-gradient-to-b from-tertiary h-[500px] sm:h-[550px] '
+      aria-labelledby='about-heading'
     >
-      <div className="container px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Content Section */}
-          <div>
-            <h1
-              id="about-heading"
-              className="text-[38px] font-bold text-secondary lg:text-[56px] leading-[46px] lg:leading-[77px] max-sm:text-center"
-            >
-              Our Journey to a leading{" "}
-              <span className="text-primary">Software Development Partner</span>
-            </h1>
-          </div>
+      {/* Background Video */}
+      <div className='absolute top-0 left-0 w-full h-full'>
+        <video className='object-cover w-full h-full opacity-60' autoPlay loop muted>
+          <source src={Video} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-          {/* Image Section */}
-          <div className="flex items-center justify-center relative">
-            <img
-              src={Pic1}
-              alt="Team collaborating on a software project"
-              className="w-full h-full object-cover rounded-md"
-            />
-          </div>
+      {/* Content Overlay */}
+      <div className='container relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+        <div className='text-center text-secondary'>
+          {/* Main heading of the hero section */}
+          <h1 id='about-heading' className='text-4xl sm:text-5xl lg:text-6xl font-bold max-w-[50rem] mx-auto mb-6'>
+            <span className='text-tertiary'>Our Journey</span> to a Leading Software Development Partner
+          </h1>
+
+          {/* Expanded subheading or description providing more context about the company */}
+          <p className='mt-4 text-lg sm:text-xl lg:text-2xl text-secondary max-w-[50rem] mx-auto'>
+            For over a decade, we've been dedicated to helping businesses unlock their full potential by delivering
+            innovative, scalable, and cutting-edge technology solutions.
+          </p>
         </div>
       </div>
     </section>
