@@ -1,5 +1,5 @@
 import Pic1 from "../../assets/About/pic1.png";
-
+// about section
 const AboutSection = () => {
   return (
     <section
