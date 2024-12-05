@@ -86,7 +86,7 @@ const PlansSection = () => {
                 <div className='relative z-10 flex flex-col h-full'>
                   <h3 className='text-xl font-semibold text-white'>{plan.name}</h3>
                   <p className='mt-4 text-4xl font-extrabold text-white'>{plan.price}</p>
-                  <ul className='mt-6 space-y-4 text-white flex-1'>
+                  <ul className='flex-1 mt-6 space-y-4 text-white'>
                     {plan.features.map((feature, i) => (
                       <li key={i} className='flex items-center space-x-3'>
                         <span className='text-white'>
@@ -112,7 +112,7 @@ const PlansSection = () => {
                 </div>
 
                 {/* Background Decoration */}
-                <div className='absolute inset-0 rounded-lg opacity-50 bg-gradient-to-b from-transparent to-secondary'></div>
+                 <div className='absolute inset-0 rounded-lg opacity-50 bg-gradient-to-b from-transparent to-secondary'></div>
               </div>
             ))}
           </div>
