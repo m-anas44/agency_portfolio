@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: 'blog/:id', // Corrected path with :id
+        path: 'blog/:slug',
         element: <BlogDetail />,
       },
       {

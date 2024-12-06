@@ -54,7 +54,7 @@ const BlogSection = () => {
           </Button>
         </div>
       </div>
-      <div className='max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-[#FAF9F6]'>
+      <div className='max-w-[85rem] px-6 py-10 md:px-12 lg:px-20 lg:py-14 mx-auto bg-[#FAF9F6]'>
         <div className='grid gap-10 lg:grid-cols-2 lg:gap-y-16'>
           {cards.map((card, index) => (
             <Link

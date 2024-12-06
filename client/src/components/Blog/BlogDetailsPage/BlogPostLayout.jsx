@@ -1,22 +1,22 @@
-import React from 'react';
-import BlogContentSection from './BlogContentSection';
-import RecentBlog from '../BlogPage/RecentBlog';
+import React from "react";
+import BlogContentSection from "./BlogContentSection";
+import RecentBlog from "../BlogPage/RecentBlog";
 
 const BlogPostLayout = () => {
   return (
-    <div className='min-h-screen py-10 bg-gray-100'>
-      <div className='container px-6 mx-auto max-w-7xl'>
+    <div className="min-h-screen py-10 bg-gray-100">
+      <div className="container px-6 mx-auto max-w-7xl">
         {/* Layout container: centers content and adds padding/margin for larger screens */}
 
         {/* Main Content and Recent Blogs */}
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Blog content section: takes up 2/3 of the grid on medium+ screens */}
-          <section className='md:col-span-2'>
+          <section className="md:col-span-2">
             <BlogContentSection />
           </section>
 
           {/* Sidebar for recent blogs: takes up 1/3 of the grid on medium+ screens */}
-          <aside className='md:col-span-1'>
+          <aside className="md:col-span-1">
             <RecentBlog />
           </aside>
         </div>

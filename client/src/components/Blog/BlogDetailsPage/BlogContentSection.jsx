@@ -1,44 +1,127 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { sanityClient } from "@/lib/sanityClient";
+import { PortableText } from "@portabletext/react";
+import urlBuilder from "@sanity/image-url"; // Import the image URL builder
+import { getImageDimensions } from "@sanity/asset-utils"; // Import image dimension utility
+
+// Create the Sanity URL builder client
+const imageUrlBuilder = urlBuilder(sanityClient);
 
 const BlogContentSection = () => {
+  const { slug } = useParams();
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const query = `*[_type == "blog" && slug.current == $slug][0]{
+          title,
+          slug,
+          "image": image.asset->url,
+          category,
+          publishedAt,
+          blogContent,
+        }`;
+        const blogData = await sanityClient.fetch(query, { slug });
+        setBlog(blogData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      }
+    };
+
+    fetchBlog();
+  }, [slug]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!blog) {
+    return <p>Blog not found.</p>;
+  }
+
+  // Custom image component
+  const SampleImageComponent = ({ value, isInline }) => {
+    const { width, height } = getImageDimensions(value);
+    const imageUrl = imageUrlBuilder
+      .image(value)
+      .width(isInline ? 100 : 800) // Adjust width for inline or block display
+      .fit("max") // Fit the image
+      .auto("format") // Auto-format the image
+      .url();
+
+    return (
+      <img
+        src={imageUrl}
+        alt={value.alt || "Blog Image"}
+        loading="lazy"
+        style={{
+          display: isInline ? "inline-block" : "block",
+          aspectRatio: width / height,
+        }}
+      />
+    );
+  };
+
   return (
-    <div className='col-span-12 p-6 bg-white rounded-md shadow-sm lg:col-span-8'>
+    <div className="col-span-12 p-6 bg-white rounded-md shadow-sm lg:col-span-8">
       {/* Blog banner image */}
-      <img src='https://via.placeholder.com/800x400' alt='Blog Banner' className='w-full mb-6 rounded-md' />
+      <img
+        src={blog.image}
+        alt={blog.title}
+        className="w-full mb-6 rounded-md"
+      />
 
       {/* Post metadata: date and author */}
-      <div className='flex items-center mb-4 space-x-4 text-gray-600'>
-        <span className='text-red-500'>📅 September 14, 2023</span> {/* Publish date */}
+      <div className="flex items-center mb-4 space-x-4 text-gray-600">
+        <span className="text-red-500">
+          📅 {new Date(blog.publishedAt).toDateString()}
+        </span>
         <span>✍️ By admin</span> {/* Author information */}
       </div>
 
       {/* Blog post title */}
-      <h1 className='mb-4 text-2xl font-semibold'>Our Personal Approach</h1>
+      <h2 className="mb-4 text-2xl font-semibold">{blog.title}</h2>
 
-      {/* Blog content paragraph */}
-      <p className='mb-4 leading-relaxed text-gray-700 whitespace-pre-line'>
-        {`There are endless ways to create some ways to have a business. 
-       We spend more time at meetings than ever with
-      knowledge melioration. 
-      It is a long-established fact that a reader will be distracted by the readable content of a
-      page when looking at its layout`}
-      </p>
+      {/* Render Blog content with PortableText */}
+      <div className="mb-6">
+        <PortableText
+          value={blog.blogContent}
+          components={{
+            types: {
+              image: SampleImageComponent,
+            },
+            listItem: {
+              bullet: ({ children }) => (
+                <li style={{ listStyleType: "disclosure-closed" }}>
+                  {children}
+                </li>
+              ),
 
-      {/* Image grid: displays two images side by side on medium+ screens */}
-      <div className='grid grid-cols-1 gap-4 mb-4 md:grid-cols-2'>
-        <img src='https://via.placeholder.com/400x250' alt='Team Meeting' className='w-full rounded-md' />
-        <img src='https://via.placeholder.com/400x250' alt='Discussion' className='w-full rounded-md' />
+              checkmarks: ({ children }) => <li>✅ {children}</li>,
+            },
+            marks: {
+              link: ({ children, value }) => (
+                <a
+                  href={value.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline"
+                >
+                  {children}
+                </a>
+              ),
+            },
+          }}
+        />
       </div>
 
-      {/* Blockquote section */}
-      <blockquote className='p-4 mb-4 italic text-gray-700 bg-gray-100 border-l-4 border-gray-500'>
-        "Diam luctus nostra varius et semper semper rutrum ad risus felis eros. - Yoeri Geense"
-      </blockquote>
-
       {/* Closing paragraph */}
-      <p className='leading-relaxed text-gray-700'>
-        No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know
-        how to pursue pleasure rationally encounter consequences that are extremely painful.
+      <p className="leading-relaxed text-gray-700">
+        Enjoyed the article? Stay tuned for more updates.
       </p>
     </div>
   );

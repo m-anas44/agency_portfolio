@@ -1,32 +1,40 @@
-import React from 'react';
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const BlogPostCard = ({ post, navigate }) => (
-  <div className='mb-6 overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md hover:shadow-xl hover:scale-105'>
+  <div className="mb-6 overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
     {/* Post image */}
-    <img src={post.image} alt={post.title} className='object-cover w-full h-56' />
+    <img
+      src={post.image}
+      alt={post.title}
+      className="object-cover w-full h-56"
+    />
 
-    <div className='p-4'>
+    <div className="p-4">
       {/* Category badge */}
-      <span className='px-2 py-1 text-sm text-white rounded-full bg-primary'>{post.category}</span>
+      <span className="px-2 py-1 text-sm text-white rounded-md bg-secondary">
+        {post.category}
+      </span>
 
       {/* Post date */}
-      <p className='mt-2 text-sm text-gray-500'>{post.date}</p>
+      <p className="mt-2 text-sm text-gray-500">{post.date}</p>
 
       {/* Post title */}
-      <h2 className='mt-2 text-xl font-bold text-secondary'>{post.title}</h2>
-
-      {/* Post description */}
-      <p className='mt-2 text-sm text-gray-600'>{post.description}</p>
+      <h2 className="mt-2 text-xl font-bold text-secondary line-clamp-2">
+        {post.title}
+      </h2>
 
       {/* "Read more" button with navigation and smooth scroll to the top */}
       <button
-        className='flex items-center p-3 mt-4 font-bold text-white transition-all duration-300 rounded-full bg-primary hover:bg-secondary hover:scale-105'
+        className="flex items-center gap-3 text-sm transition-all duration-200 rounded-full md:text-base bg-primary text-white px-3 py-2 hover:bg-secondary hover:text-white mt-4 tracking-wide"
         onClick={() => {
           window.scrollTo(0, 0); // Scroll to the top before navigating
-          navigate(`/blog/${post.id}`); // Navigate to the post's detail page
+          navigate(`/blog/${post.slug.current}`); // Navigate to the post's detail page
         }}
       >
-        Read more <span className='ml-1'>&rarr;</span>
+        <span>Read more</span>
+        <span>
+          <FaArrowRightLong />
+        </span>
       </button>
     </div>
   </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import BlogPostLayout from '../../components/Blog/BlogDetailsPage/BlogPostLayout';
+import React from "react";
+import BlogPostLayout from "../../components/Blog/BlogDetailsPage/BlogPostLayout";
 const BlogDetail = () => {
   return (
     <div>

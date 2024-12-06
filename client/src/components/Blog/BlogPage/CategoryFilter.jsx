@@ -1,18 +1,7 @@
 import React from 'react';
 
-const CategoryFilter = ({ selectedCategory, onSelectCategory }) => {
-  // List of categories to display in the filter
-  const categories = [
-    'All',
-    'Business',
-    'Digital Agency',
-    'Introductions',
-    'New Technologies',
-    'Web Development',
-    'Solutions',
-    'Marketing',
-    'Development',
-  ];
+const CategoryFilter = ({ selectedCategory, onSelectCategory, categories }) => {
+
 
   return (
     <div className='w-full p-4 mx-auto mb-6 bg-white rounded-lg shadow-md'>
