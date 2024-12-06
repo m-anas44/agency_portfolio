@@ -61,7 +61,7 @@ const TestimonialSection = () => {
           <div className='lg:col-span-5 lg:col-start-1'>
             <Slider {...carouselSettings}>
               {testimonials.map((testimonial) => (
-                <div className=' p-4 border border-secondary rounded-lg h-[20rem] overflow-auto' key={testimonial.id}>
+                <div className=' p-4 border-2 border-secondary rounded-lg h-[20rem] overflow-auto' key={testimonial.id}>
                   <div>
                     <h2 className='mb-4 text-3xl font-bold text-secondary'>{testimonial.title}</h2>
                     <p className='mb-6 text-secondary'>{testimonial.description}</p>
