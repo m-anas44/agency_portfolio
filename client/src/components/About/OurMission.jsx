@@ -1,35 +1,42 @@
-import { Button } from "@/components/SharedComponents/index";
+import { Button } from '@/components/SharedComponents/index';
 
 const OurMission = () => {
   return (
-    <section className="bg-[#001F29] py-16 px-5 sm:px-12 lg:px-24 text-white mt-[15px] sm:mt-[22px]">
-      <article className="max-w-5xl mx-auto">
-        {/* Section Header */}
-        <header className="flex justify-center  sm:justify-start mb-6">
-          <Button
-            className="mt-4 text-lg   transition-all duration-200 rounded-md drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
-            onClick={() => {}}
-          >
-            Our Mission
-          </Button>
-        </header>
+    <section className='relative py-24 px-6 sm:px-12 lg:px-24 text-secondary mt-[15px] sm:mt-[22px]'>
+      {/* Overlay content */}
+      <div className='container relative z-10 text-center '>
+        {/* Heading */}
+        <h1 className='mb-6 text-4xl font-extrabold sm:text-5xl lg:text-6xl '>
+          Our Mission: <span className='text-primary'>Empowering the Future</span>
+        </h1>
 
-        {/* Section Content */}
-        <div className="sm:ml-9 ">
-          <h1 className="text-[30px] sm:text-[32px] font-medium leading-[42px] lg:leading-[42px] ">
-            Help companies and organizations deliver{" "}
-            <span className="text-[#12C2B2]">
-              innovative technology solutions to
-            </span>{" "}
-            power their growth{" "}
-            <span className="text-[#12C2B2]">
-              by unlocking access to passionate and experienced
-            </span>{" "}
-            engineers and <br />
-            solution providers.
-          </h1>
+        {/* Main Text Content */}
+        <p className='mb-8 text-lg sm:text-xl lg:text-2xl opacity-90'>
+          At <span className='text-primary'>TechSpireX,</span> we strive to help organizations accelerate their growth
+          by delivering innovative tech solutions and empowering businesses to lead the digital transformation.
+        </p>
+
+        {/* 3 Key Points */}
+        <div className='grid grid-cols-1 gap-10 mt-20 sm:grid-cols-3 '>
+          <div className='flex flex-col items-center text-center '>
+            <div className='mb-4 text-4xl text-primary'>🚀</div>
+            <h3 className='text-xl font-semibold text-primary'>Innovation</h3>
+            <p className='mt-2 '>We constantly push the boundaries of technology to create cutting-edge solutions.</p>
+          </div>
+          <div className='flex flex-col items-center text-center'>
+            <div className='mb-4 text-4xl text-primary'>🤝</div>
+            <h3 className='text-xl font-semibold text-primary'>Collaboration</h3>
+            <p className='mt-2 '>We believe in the power of teamwork to deliver the best results for our clients.</p>
+          </div>
+          <div className='flex flex-col items-center text-center'>
+            <div className='mb-4 text-4xl text-primary'>📈</div>
+            <h3 className='text-xl font-semibold text-primary '>Growth</h3>
+            <p className='mt-2'>
+              We&apos;re committed to helping businesses grow by unlocking new opportunities through technology.
+            </p>
+          </div>
         </div>
-      </article>
+      </div>
     </section>
   );
 };

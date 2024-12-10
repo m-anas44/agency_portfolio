@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/SharedComponents/index"; 
 import { RiTeamLine } from "react-icons/ri"; 
 import { IoGift } from "react-icons/io5"; 
@@ -6,24 +7,38 @@ import { FaChartLine, FaHouseUser } from "react-icons/fa";
 const features = [
   {
     icon: <RiTeamLine className="w-8 h-8 text-blue-500" />,
+
+import { Button } from "@/components/SharedComponents/index";
+
+
+const features = [
+  {
+    // icon: <FontAwesomeIcon icon={faUsers} className="w-8 h-8 text-blue-500" />,
+
     title: "Team-Oriented Workplace Culture",
     description:
       "At PF, we cultivate a working culture that encourages teamwork and collaboration among team members to work towards achieving set goals.",
   },
   {
+
     icon: <IoGift className="w-8 h-8 text-blue-500" />,
     title: "Employees Perks & Benefits",
+
     description:
       "Programmers Force takes excellent care of its employees. Therefore, we have developed various beneficial plans for our employees to motivate them and maintain their morale, including annual trips.",
   },
   {
+
     icon: <FaChartLine className="w-8 h-8 text-blue-500" />,
+
     title: "Opportunities for Growth",
     description:
       "We believe in empowering the youth and young thinkers! At PF, we hire individuals based on their potential and provide them with on-site training and career-growth opportunities to promote professional growth.",
   },
   {
+
     icon: <FaHouseUser className="w-8 h-8 text-blue-500" />,
+
     title: "Great Work-Life Balance",
     description:
       "Here at PF, we foster a healthy work-life balance to avoid mental burnout and promote greater productivity by arranging on-site events, annual trips, and much more.",
@@ -33,17 +48,19 @@ const features = [
 const FeatureCards = () => {
   return (
     <section className="py-12 bg-gradient-to-b from-gray-200 to-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="px-6 mx-auto max-w-7xl">
         <h2 className="text-[32px] sm:text-[28px] text-center text-gray-900 mb-10 font-bold">
           Beyond the Ordinary: What Sets Us Apart
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {features.map((feature, index) => (
             <div
               key={index}
+
               className="bg-white relative border-blue-500 p-6 flex items-start gap-4 hover:shadow-xl transition transform
                 duration-300 border rounded-lg shadow-lg border-secondary/50 group text-secondary group-hover:border-primary hover:scale-105"
+
             >
               <div className="absolute inset-0 transition-all duration-500 ease-in-out bg-primary/80 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-100%]"></div>
 
@@ -58,16 +75,7 @@ const FeatureCards = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <Button
-            className="mt-4 text-md transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
-            onClick={() => {
-              alert("Apply Now button clicked!");
-            }}
-          >
-            Apply Now
-          </Button>
-        </div>
+
       </div>
     </section>
   );

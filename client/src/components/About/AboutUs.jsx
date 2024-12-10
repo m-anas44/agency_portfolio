@@ -1,44 +1,50 @@
-import StatsCard from "./StatsCard";
 
-import { Button } from "@/components/SharedComponents/index";
+import StatsCard from './StatsCard';
+import Pic2 from '@/assets/About/pic2.jpg';
+import { Button } from '@/components/SharedComponents/index';
+
 
 const AboutUs = () => {
   return (
-    <section className="bg-white py-16 px-6" aria-labelledby="about-us-heading">
-      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+    <section
+      className='relative px-6 py-20 text-white bg-gradient-to-b from-primary/80 to-transparent sm:px-12 lg:px-24'
+      aria-labelledby='about-us-heading'
+    >
+      {/* Background Overlay for better text readability */}
+      <div className='absolute inset-0 bg-black opacity-40'></div>
+
+      <div className='container relative z-10 grid items-center max-w-6xl gap-12 mx-auto md:grid-cols-2'>
         {/* Content Section */}
-        <article>
-          <h1 className="text-[24px] sm:text-[36px] md:text-5xl font-bold text-gray-900 leading-tight">
-            <span className="text-primary">
-              TechSpirex helps start-ups,SMEs, and{" "}
-            </span>
-            <span>enterprises grow their business</span>
+        <article className='text-center sm:text-left'>
+          <h1 className='mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl'>
+            <span className='text-primary'>TechSpirex</span> helps start-ups, SMEs, and{' '}
+            <span className='text-primary'>enterprises</span> grow their business
           </h1>
-          <p className="mt-4 text-[20px] text-gray-600">
-            Since 2000, we've taken pride in delivering high-quality, customized
-            services to help businesses build, grow, and transform.
+          <p className='mb-6 text-lg text-gray-200 sm:text-xl'>
+            We are committed to delivering high-quality, customized solutions that help businesses grow, adapt, and
+            succeed in today&apos;s rapidly evolving digital landscape. With a focus on innovation and a passion for
+            excellence, our team empowers organizations to navigate the challenges of a digital-first world.
           </p>
-          <div className="flex justify-start sm:justify-start">
-            <Button
-              className="mt-[15px] sm:mt-[22px] text-lg  transition-all duration-200 rounded-md drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
-              onClick={() => {}}
-            >
-              Learn More
-            </Button>
-          </div>
         </article>
 
         {/* Image and Stats Section */}
-        <div className="space-y-8">
-          <img
-            src="../../assets/About/pic2.png"
-            alt="Devsinc team working collaboratively on a project"
-            className="rounded-lg shadow-lg w-full"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <StatsCard value="236+" description="Active Clients" />
-            <StatsCard value="3,000+" description="Projects Delivered" />
-            <StatsCard value="23+" description="Countries Supported" />
+
+        <div className='space-y-8'>
+          <div className='relative overflow-hidden rounded-lg shadow-lg'>
+            <img
+              src={Pic2}
+              alt='Devsinc team working collaboratively on a project'
+              className='object-cover w-full h-[350px] sm:h-[450px] transform hover:scale-110 transition duration-500'
+            />
+            <div className='absolute inset-0 bg-black opacity-30'></div>
+          </div>
+
+          {/* Stats Cards */}
+          <div className='grid grid-cols-1 gap-10 sm:grid-cols-3'>
+            <StatsCard value='5+' description='Projects in Progress' />
+            <StatsCard value='10+' description='Satisfied Clients' />
+            <StatsCard value='2' description='Industries Entered' />
+
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Button } from '@/components/SharedComponents/index';
 const testimonials = [
   {
     id: 1,
@@ -56,13 +55,13 @@ const TestimonialSection = () => {
           Client <span className='text-secondary'>Feedback </span>
         </h2>
       </div>
-      <div className='max-w-[80rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-7 mx-auto  bg-gradient-to-r from-tertiary/90 to-tertiary/90 rounded-lg my-12'>
+      <div className=' px-6 py-10 md:px-12 lg:px-20 lg:py-7 mx-auto  bg-gradient-to-r from-tertiary/90 to-tertiary/90 rounded-lg my-12'>
         <div className=' lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between'>
           {/* Left Side: Carousel Section */}
           <div className='lg:col-span-5 lg:col-start-1'>
             <Slider {...carouselSettings}>
               {testimonials.map((testimonial) => (
-                <div className=' p-4 border border-secondary rounded-lg h-[20rem] overflow-auto' key={testimonial.id}>
+                <div className=' p-4 border-2 border-secondary rounded-lg h-[20rem] overflow-auto' key={testimonial.id}>
                   <div>
                     <h2 className='mb-4 text-3xl font-bold text-secondary'>{testimonial.title}</h2>
                     <p className='mb-6 text-secondary'>{testimonial.description}</p>

@@ -1,9 +1,10 @@
 
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/SharedComponents/index";
-import { sanityClient } from "@/lib/sanityClient";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/SharedComponents/index';
+import { sanityClient } from '@/lib/sanityClient';
+import { useNavigate } from 'react-router-dom';
+
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -20,28 +21,33 @@ const Services = () => {
     sanityClient
       .fetch(query)
       .then((data) => setServices(data))
-      .catch((err) => console.error("Failed to fetch services:", err));
+      .catch((err) => console.error('Failed to fetch services:', err));
   }, []);
 
   const navigate = useNavigate();
 
   return (
-    <section className="px-6 py-16 bg-white lg:px-20 text-primary">
-      <div className="container">
 
+    <section className='px-6 py-16 bg-white lg:px-20 text-primary'>
+      <div className='container'>
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-between mb-10 md:flex-row">
+        <div className='flex flex-col items-center justify-between mb-10 md:flex-row'>
+
           <div>
-            <p className="text-xl font-bold text-secondary">Our Services</p>
-            <h2 className="mt-4 text-4xl font-bold md:mt-1">
-              Our Palette Of <span className="text-secondary">Expertise</span>
+            <p className='text-xl font-bold text-secondary'>Our Services</p>
+            <h2 className='mt-4 text-4xl font-bold md:mt-1'>
+              Our Palette Of <span className='text-secondary'>Expertise</span>
             </h2>
           </div>
           <div>
             <Button
-              className="mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
 
-              onClick={() => navigate("/services")}
+              className='mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white'
+              onClick={() => {
+                navigate('/services');
+                window.scrollTo(0, 0);
+              }}
+
             >
               All Services
             </Button>
@@ -49,6 +55,9 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
+
+
+
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (

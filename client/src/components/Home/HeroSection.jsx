@@ -1,8 +1,10 @@
-import React from 'react';
-import HeroImage from '@/assets/Home/Hero.png';
-import { Button } from '@/components/SharedComponents/index';
+import React from "react";
+import HeroImage from "@/assets/Home/Hero.png";
+import { Button } from "@/components/SharedComponents/index";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="px-8 py-12 lg:px-20 text-primary bg-tertiary">
       <div className="container grid grid-cols-1 gap-12 mx-auto lg:grid-cols-2">
@@ -14,23 +16,38 @@ const HeroSection = () => {
               Creative Agency
             </p>
             <h1 className="text-3xl font-bold leading-[1.5] md:leading-[68px] md:text-5xl">
-              Empowering Brands With{' '}
-              <span className="border-b-4 text-secondary border-secondary">Creative </span>{' '}
+              Empowering Brands With{" "}
+              <span className="border-b-4 text-secondary border-secondary">
+                Creative{" "}
+              </span>{" "}
               <span className="text-primary">Innovation</span>
             </h1>
           </div>
 
           {/* Section Subheading */}
           <p className="mt-4 text-2xl text-primary">
-            We specialize in delivering cutting-edge solutions tailored to your needs. Whether you&rsquo;re looking, we succeed.
+            We specialize in delivering cutting-edge solutions tailored to your
+            needs. Whether you&rsquo;re looking, we succeed.
           </p>
 
           {/* Call to Action Buttons */}
           <div className="flex gap-4 mt-8">
-            <Button className="text-lg text-white transition rounded-md xs:text-xl bg-primary hover:bg-secondary hover:text-primary">
+            <Button
+              className="text-lg text-white transition rounded-md xs:text-xl bg-primary hover:bg-secondary hover:scale-100"
+              onClick={() => {
+                navigate("/aboutUs");
+                window.scrollTo(0, 0);
+              }}
+            >
               About Us
             </Button>
-            <Button className="text-base transition-all bg-transparent border rounded-md xs:text-xl border-primary text-primary hover:bg-secondary hover:text-tertiary">
+            <Button
+              className="text-base transition-all bg-transparent border rounded-md xs:text-xl border-secondary text-primary hover:bg-secondary hover:text-tertiary hover:scale-100"
+              onClick={() => {
+                navigate("/services");
+                window.scrollTo(0, 0);
+              }}
+            >
               Our Services
             </Button>
           </div>
