@@ -1,13 +1,26 @@
+
 import { Home, About, Contact, AllServices, Pricing, Blog, BlogDetail, AllProjects } from './Pages/index';
 import Layout from './Layout';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// Create the router configuration
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './Layout';
+import {
+  Home,
+  About,
+  Contact,
+  AllServices,
+  Pricing,
+  Blog,
+  AllProjects,
+  ServiceDetails,
+} from './Pages';
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
+
       {
         path: '',
         element: <Home />,
@@ -40,6 +53,7 @@ const router = createBrowserRouter([
         path: 'projects',
         element: <AllProjects />,
       },
+
     ],
   },
 ]);
@@ -47,6 +61,5 @@ const router = createBrowserRouter([
 function App() {
   return <RouterProvider router={router} />;
 }
-
 
 export default App;

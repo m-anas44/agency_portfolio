@@ -1,6 +1,8 @@
+
 import StatsCard from './StatsCard';
 import Pic2 from '@/assets/About/pic2.jpg';
 import { Button } from '@/components/SharedComponents/index';
+
 
 const AboutUs = () => {
   return (
@@ -26,6 +28,7 @@ const AboutUs = () => {
         </article>
 
         {/* Image and Stats Section */}
+
         <div className='space-y-8'>
           <div className='relative overflow-hidden rounded-lg shadow-lg'>
             <img
@@ -41,6 +44,7 @@ const AboutUs = () => {
             <StatsCard value='5+' description='Projects in Progress' />
             <StatsCard value='10+' description='Satisfied Clients' />
             <StatsCard value='2' description='Industries Entered' />
+
           </div>
         </div>
       </div>
