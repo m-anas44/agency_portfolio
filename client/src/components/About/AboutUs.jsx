@@ -1,5 +1,5 @@
 import StatsCard from "./StatsCard";
-import Pic2 from "@/assets/About/pic2.png";
+
 import { Button } from "@/components/SharedComponents/index";
 
 const AboutUs = () => {
@@ -31,7 +31,7 @@ const AboutUs = () => {
         {/* Image and Stats Section */}
         <div className="space-y-8">
           <img
-            src={Pic2}
+            src="../../assets/About/pic2.png"
             alt="Devsinc team working collaboratively on a project"
             className="rounded-lg shadow-lg w-full"
           />
