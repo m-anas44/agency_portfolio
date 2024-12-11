@@ -57,7 +57,7 @@ const PlansSection = () => {
       {categories.map((category, index) => (
         <div
           key={index}
-          className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:px-8"
+          className="max-w-6xl px-3 sm:px-4 md:px-6 lg:px-20 py-6 mx-auto"
         >
           <h2 className="mb-8 text-3xl font-extrabold text-secondary">
             {category.title}

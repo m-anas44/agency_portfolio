@@ -15,7 +15,7 @@ const AboutSection = () => {
       </div>
 
       {/* Content Overlay */}
-      <div className='container relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+      <div className='container relative z-10 px-3 sm:px-4 md:px-6 lg:px-20 mx-auto max-w-7xl'>
         <div className='text-center text-secondary'>
           {/* Main heading of the hero section */}
           <h1 id='about-heading' className='text-4xl sm:text-5xl lg:text-6xl font-bold max-w-[50rem] mx-auto mb-6'>

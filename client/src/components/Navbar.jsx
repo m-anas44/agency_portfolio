@@ -57,23 +57,25 @@ const Navbar = () => {
                   ))}
 
                   {/* Services Dropdown */}
-                  <li className="relative group">
-                    <span className="text-lg font-normal leading-4 text-white transition-all duration-200 cursor-pointer hover:text-primary">
-                      Services
-                    </span>
-                    <ul className="absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-40 flex flex-col space-y-2">
-                      {servicesDropdown.map((service, index) => (
-                        <li key={index}>
-                          <Link
-                            to={service.to}
-                            className="block px-4 py-2 text-sm font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-primary hover:bg-tertiary"
-                          >
-                            {service.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
+                  <Link to="/services">
+                    <li className="relative group">
+                      <span className="text-lg font-normal leading-4 text-white transition-all duration-200 cursor-pointer hover:text-primary">
+                        Services
+                      </span>
+                      <ul className="absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-40 flex flex-col space-y-2">
+                        {servicesDropdown.map((service, index) => (
+                          <li key={index}>
+                            <Link
+                              to={service.to}
+                              className="block px-4 py-2 text-sm font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-primary hover:bg-tertiary"
+                            >
+                              {service.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </Link>
                 </ul>
               </nav>
             </div>
@@ -142,7 +144,7 @@ const Navbar = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-10 h-10"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

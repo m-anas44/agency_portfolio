@@ -109,7 +109,7 @@ const Footer = () => {
             </Link>
           </p>
           <button
-            className="flex items-center justify-center w-8 h-8 duration-200 rounded-full sm:w-8 md:h-10 bg-tertiary hover:bg-primary group hover:scale-105"
+            className="flex items-center justify-center w-8 h-8 duration-200 rounded-full md:w-10 md:h-10 bg-tertiary hover:bg-primary group hover:scale-105"
             aria-label="Back to top"
             onClick={scrollToTop} // Add onClick to trigger scrollToTop
           >
