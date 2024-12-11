@@ -1,14 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import data from './mokeData';
+import data from './mokeData'; // Ensure this path is correct
 
 const HeroSection = () => {
   const { slug } = useParams(); // Extract the 'service' from the URL
-
   // Find the data corresponding to the service in the URL
-  const serviceData = data.find((item) => item.id === slug);
-
-  // If no matching service is found, render a fallback
+  const serviceData = data.find((item) => item.id === slug.toLowerCase()) || data[0];
 
   return (
     <section className='py-10 bg-primary sm:py-16 md:py-20 lg:py-24'>

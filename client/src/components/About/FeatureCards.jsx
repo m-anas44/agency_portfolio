@@ -4,11 +4,7 @@ import { RiTeamLine } from "react-icons/ri";
 import { IoGift } from "react-icons/io5"; 
 import { FaChartLine, FaHouseUser } from "react-icons/fa";
 
-const features = [
-  {
-    icon: <RiTeamLine className="w-8 h-8 text-blue-500" />,
 
-import { Button } from "@/components/SharedComponents/index";
 
 
 const features = [

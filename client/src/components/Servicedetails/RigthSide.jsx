@@ -4,8 +4,8 @@ import data from './mokeData'; // Ensure this path is correct
 import WorkBenefits from './WorkBenefit';
 
 const Home = () => {
-  const { slug } = useParams(); // Extract slug from the URL
-
+  const { slug } = useParams(); // Extract the 'service' from the URL
+  console.log(slug)
   const pageData = data.find((page) => page.id === slug.toLowerCase()) || data[0];
 
   // Split the description into two halves
