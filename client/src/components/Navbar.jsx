@@ -62,7 +62,7 @@ const Navbar = () => {
                     <span className='text-lg font-normal leading-4 text-white transition-all duration-200 cursor-pointer hover:text-primary'>
                       Services
                     </span>
-                    <ul className='absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-10 flex flex-col space-y-2'>
+                    <ul className='absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-40 flex flex-col space-y-2'>
                       {servicesDropdown.map((service, index) => (
                         <li key={index}>
                           <Link

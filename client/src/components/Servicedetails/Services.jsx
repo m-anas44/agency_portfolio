@@ -5,6 +5,8 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailOpen } from "react-icons/io5";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 import { PagesContent } from "./PageContent";
 const Services = () => {
   const [selectedService, setSelectedService] = useState("Web Development"); // Default selected service
@@ -23,7 +25,7 @@ const Services = () => {
               key={service.id}
               onClick={() => {
                 setSelectedService(service.title); // Update selected service state
-                navigate(`/${service.id}`); // Navigate to the dynamic path
+                navigate(`/services/${service.id}`); // Navigate to the dynamic path
               }}
               className={`w-full flex justify-between items-center px-4 py-3 rounded-md text-sm font-medium ${
                 selectedService === service.title
@@ -32,7 +34,7 @@ const Services = () => {
               }`}
             >
               {service.title} {/* Display service title */}
-              <span className="text-black">{">"}</span>
+              <MdOutlineKeyboardArrowRight/>
             </button>
           ))}
         </div>

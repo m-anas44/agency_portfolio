@@ -1,26 +1,17 @@
-
-import { Button } from "@/components/SharedComponents/index"; 
-import { RiTeamLine } from "react-icons/ri"; 
-import { IoGift } from "react-icons/io5"; 
+import { RiTeamLine } from "react-icons/ri";
+import { IoGift } from "react-icons/io5";
 import { FaChartLine, FaHouseUser } from "react-icons/fa";
-
-const features = [
-  {
-    icon: <RiTeamLine className="w-8 h-8 text-blue-500" />,
-
 import { Button } from "@/components/SharedComponents/index";
-
 
 const features = [
   {
     // icon: <FontAwesomeIcon icon={faUsers} className="w-8 h-8 text-blue-500" />,
-
+    icon: <RiTeamLine className="w-8 h-8 text-blue-500" />,
     title: "Team-Oriented Workplace Culture",
     description:
       "At PF, we cultivate a working culture that encourages teamwork and collaboration among team members to work towards achieving set goals.",
   },
   {
-
     icon: <IoGift className="w-8 h-8 text-blue-500" />,
     title: "Employees Perks & Benefits",
 
@@ -28,7 +19,6 @@ const features = [
       "Programmers Force takes excellent care of its employees. Therefore, we have developed various beneficial plans for our employees to motivate them and maintain their morale, including annual trips.",
   },
   {
-
     icon: <FaChartLine className="w-8 h-8 text-blue-500" />,
 
     title: "Opportunities for Growth",
@@ -36,7 +26,6 @@ const features = [
       "We believe in empowering the youth and young thinkers! At PF, we hire individuals based on their potential and provide them with on-site training and career-growth opportunities to promote professional growth.",
   },
   {
-
     icon: <FaHouseUser className="w-8 h-8 text-blue-500" />,
 
     title: "Great Work-Life Balance",
@@ -57,10 +46,8 @@ const FeatureCards = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-
               className="bg-white relative border-blue-500 p-6 flex items-start gap-4 hover:shadow-xl transition transform
                 duration-300 border rounded-lg shadow-lg border-secondary/50 group text-secondary group-hover:border-primary hover:scale-105"
-
             >
               <div className="absolute inset-0 transition-all duration-500 ease-in-out bg-primary/80 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-100%]"></div>
 
@@ -69,13 +56,13 @@ const FeatureCards = () => {
                 <h3 className="text-[20px] sm:text-base font-semibold text-black">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-[16px] text-black">{feature.description}</p>
+                <p className="mt-2 text-[16px] text-black">
+                  {feature.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );

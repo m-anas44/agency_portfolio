@@ -1,9 +1,5 @@
-
-import { Home, About, Contact, AllServices, Pricing, Blog, BlogDetail, AllProjects } from './Pages/index';
-import Layout from './Layout';
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './Layout';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Layout";
 import {
   Home,
   About,
@@ -12,48 +8,51 @@ import {
   Pricing,
   Blog,
   AllProjects,
+  BlogDetail,
   ServiceDetails,
-} from './Pages';
+} from "./Pages";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
-
       {
-        path: '',
+        path: "",
         element: <Home />,
       },
       {
-        path: 'aboutUs',
+        path: "aboutUs",
         element: <About />,
       },
       {
-        path: 'contact',
+        path: "contact",
         element: <Contact />,
       },
       {
-        path: 'services',
+        path: "services",
         element: <AllServices />,
       },
       {
-        path: 'pricing',
+        path: "services/:serviceId",
+        element: <ServiceDetails />,
+      },
+      {
+        path: "pricing",
         element: <Pricing />,
       },
       {
-        path: 'blog',
+        path: "blog",
         element: <Blog />,
       },
       {
-        path: 'blog/:slug',
+        path: "blog/:slug",
         element: <BlogDetail />,
       },
       {
-        path: 'projects',
+        path: "projects",
         element: <AllProjects />,
       },
-
     ],
   },
 ]);
