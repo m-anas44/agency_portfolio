@@ -29,19 +29,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className='py-16 bg-tertiary'>
-      {/* Heading Section */}
-      <div className='max-w-4xl mx-auto text-center'>
-        <h2 className='mb-4 text-4xl font-extrabold text-secondary'>Get in Touch</h2>
-        <p className='text-lg text-secondary'>
-          We'd love to hear about your project. Whether you have a big idea or need help refining your brand, reach out
-          and let's start a conversation.
-        </p>
-      </div>
-
-      {/* Contact Form */}
-      <div className='grid items-start max-w-4xl gap-12 p-8 mx-auto mt-12 bg-white rounded-lg shadow-xl sm:grid-cols-2'>
-        {/* Left Section */}
+    <div className="mt-6">
+      <div className="grid sm:grid-cols-2 items-start gap-14 p-8 mx-auto max-w-4xl bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]">
         <div>
           <h3 className='text-2xl font-bold text-secondary'>Contact Information</h3>
           <p className='mt-4 text-sm text-secondary'>
