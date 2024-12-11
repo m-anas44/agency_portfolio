@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '@/assets/Logo.png';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const navLinks = [
   { name: 'About', to: '/aboutUs' },
@@ -13,7 +12,7 @@ const navLinks = [
 const servicesDropdown = [
   { name: 'Web Development', to: '/services/web-development' },
   { name: 'E-Commerce', to: '/services/e-commerce' },
-  { name: 'Shopify Store Design', to: '/services/shopify-store-design' },
+  { name: 'Shopify Store Design', to: '/services/shopify' },
 ];
 
 const NavbarLink = ({ name, to, onClick }) => (

@@ -1,34 +1,48 @@
-import Men from "../assets/men.jpg";
-import Laptop from "../assets/laptop.jpg";
+import React from 'react';
+import Men from '../../assets/ServicesDetails/men.jpg';
+import Laptop from '../../assets/ServicesDetails/laptop.jpg';
 
 const Cards = () => {
-  return (
-    <div className="flex flex-col xl:flex-row gap-5 my-6 ">
-      {/* Card 1 */}
-      <div className="flex flex-1 bg-tertiary items-stretch max-h-[170px] rounded-md overflow-hidden">
-        <img src={Men} alt="men" className="w-1/3 object-cover" />
-        <div className="flex flex-col p-3 text-secondary justify-center">
-          <h1 className="text-[20px] mb-3 text-secondary font-extrabold leading-6">
-            <span className="text-primary">Best</span> Solutions
-          </h1>
-          <p className="text-[15px] lg:text-[16px] font-medium leading-6 lg:leading-7">
-            We focus on the best practices for IT solutions and services.
-          </p>
-        </div>
-      </div>
+  const cardData = [
+    {
+      image: Men,
+      title: 'Solutions',
+      highlight: 'Best',
+      description: 'We provide innovative IT solutions to drive business success.',
+    },
+    {
+      image: Laptop,
+      title: 'Analyses',
+      highlight: 'Data',
+      description: 'We empower decisions through detailed data insights.',
+    },
+  ];
 
-      {/* Card 2 */}
-      <div className="flex flex-1 bg-tertiary items-stretch max-h-[170px] rounded-md overflow-hidden">
-        <img src={Laptop} alt="laptop" className="w-1/3 object-cover" />
-        <div className="flex flex-col p-3 text-secondary justify-center">
-          <h1 className="text-[20px] mb-3 text-secondary font-extrabold leading-6">
-            <span className="text-primary">Data</span> Analyses
+  const Card = ({ image, title, highlight, description }) => {
+    return (
+      <div className='flex flex-1 overflow-hidden rounded-md bg-tertiary'>
+        <img src={image} alt={title} className='object-cover w-1/3' />
+        <div className='flex flex-col justify-center px-4 py-2 '>
+          <h1 className='text-lg font-bold lg:text-xl text-secondary'>
+            <span className='text-primary'>{highlight}</span> {title}
           </h1>
-          <p className="text-[15px] lg:text-[16px] font-medium leading-6 lg:leading-7">
-            We focus on the best practices for IT solutions and services.
-          </p>
+          <p className='text-sm font-medium lg:text-base text-secondary'>{description}</p>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div className='flex flex-col gap-6 my-1 xl:flex-row'>
+      {cardData.map((card, index) => (
+        <Card
+          key={index}
+          image={card.image}
+          title={card.title}
+          highlight={card.highlight}
+          description={card.description}
+        />
+      ))}
     </div>
   );
 };

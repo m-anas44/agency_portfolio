@@ -1,27 +1,30 @@
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import data from './mokeData';
+
 const HeroSection = () => {
+  const { slug } = useParams(); // Extract the 'service' from the URL
+
+  // Find the data corresponding to the service in the URL
+  const serviceData = data.find((item) => item.id === slug);
+
+  // If no matching service is found, render a fallback
+
   return (
-    <section className="bg-gradient-to-t from-teal-500 via-teal-200 to-tertiary font-sans pt-16 pb-20 max-md:pt-[120px] max-lg:pt-36 lg:pt-36">
-      {/* Content Container */}
-      <div className="flex flex-col gap-4 mx-auto max-w-none max-lg:max-w-[728px] lg:max-w-[1024px]">
-        {/* Header Section */}
+    <section className='py-10 bg-primary sm:py-16 md:py-20 lg:py-24'>
+      <div className='flex flex-col gap-6  mx-auto px-4 sm:px-6 lg:px-8 max-w-[95%] sm:max-w-[728px] lg:max-w-[1024px]'>
+        {/* Render the title dynamically */}
         <h1
-          className="text-primary font-bold text-center pb-4
-            text-[32px] leading-[35px] 
-            sm:text-5xl sm:leading-[51px]
-            md:text-[65px] md:leading-[72px]
-            lg:text-[70px] lg:leading-[77px]"
+          className='text-tertiary font-bold text-center 
+            text-2xl sm:text-3xl md:text-5xl lg:text-[65px] 
+            leading-7 sm:leading-9 md:leading-[72px] lg:leading-[77px]'
         >
-          <span className="text-secondary">Web</span> Development
+          {serviceData.title}
         </h1>
 
-        {/* Description Section */}
-        <p
-          className="text-secondary text-center font-medium 
-            text-[18px] leading-[27px] 
-            mx-[10px] sm:mx-4"
-        >
-          Encompasses building and maintaining websites, including front-end
-          (user interface) and back-end (server-side) development.
+        {/* Render the description dynamically */}
+        <p className='px-4 text-sm font-medium leading-5 text-center text-secondary sm:text-base md:text-lg lg:text-xl sm:leading-7 md:leading-8 lg:leading-9 sm:px-6'>
+          {serviceData.description.slice(0, 200)}...
         </p>
       </div>
     </section>

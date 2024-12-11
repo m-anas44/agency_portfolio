@@ -1,26 +1,12 @@
-
-import { Home, About, Contact, AllServices, Pricing, Blog, BlogDetail, AllProjects } from './Pages/index';
-import Layout from './Layout';
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout';
-import {
-  Home,
-  About,
-  Contact,
-  AllServices,
-  Pricing,
-  Blog,
-  AllProjects,
-  ServiceDetails,
-} from './Pages';
+import { Home, About, Contact, AllServices, Pricing, Blog,BlogDetail, AllProjects, ServiceDetails } from './Pages/index';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-
       {
         path: '',
         element: <Home />,
@@ -53,7 +39,10 @@ const router = createBrowserRouter([
         path: 'projects',
         element: <AllProjects />,
       },
-
+      {
+        path: 'services/:slug',
+        element: <ServiceDetails />,
+      },
     ],
   },
 ]);
