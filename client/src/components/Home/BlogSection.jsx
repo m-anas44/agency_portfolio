@@ -3,6 +3,7 @@ import { Button } from "@/components/SharedComponents/index";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { sanityClient } from "@/lib/sanityClient";
+import { MdArrowOutward } from "react-icons/md";
 
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]);
@@ -29,28 +30,31 @@ const BlogSection = () => {
     fetchBlogs();
   }, []);
   return (
-    <section>
+    <section className="px-3 sm:px-4 md:px-6 lg:px-20 py-10 lg:py-7">
       {/* Section Header */}
-      <div className="flex flex-col justify-between px-6 mb-10 md:px-12 lg:px-20 md:flex-row">
+      <div className="flex flex-col justify-between mb-10 md:flex-row">
         <div>
-          <p className="text-xl font-bold text-secondary">Blog & News</p>
-          <h2 className="mt-4 text-4xl font-bold md:mt-1 text-primary">
+          <p className="text-lg sm:text-xl font-bold text-secondary text-center md:text-left">
+            Blog & News
+          </p>
+          <h2 className="text-2xl xs:text-3xl md:text-4xl font-bold mt-1 text-center text-primary">
             Latest News <span className="text-secondary">Blog</span>
           </h2>
         </div>
         <div>
           <Button
-            className="block mx-auto mt-4 text-lg transition-all duration-200 rounded-full drop-shadow-lg md:text-xl md:mt-0 hover:bg-secondary hover:text-white"
+            className="mt-4 flex gap-x-2 items-center text-base sm:text-lg md:text-xl transition-all duration-200 rounded-full drop-shadow-lg md:mt-0 hover:bg-secondary hover:text-white mx-auto"
             onClick={() => {
               navigate("/blog");
               window.scrollTo(0, 0);
             }}
           >
-            See All Blog
+            <span>See All Blog</span>
+            <MdArrowOutward className="text-xl sm:text-2xl" />
           </Button>
         </div>
       </div>
-      <div className="max-w-[85rem] px-6 py-10 md:px-12 lg:px-20 lg:py-14 mx-auto bg-[#FAF9F6]">
+      <div className="max-w-[85rem] mx-auto bg-[#FAF9F6]">
         <div className="grid gap-10 lg:grid-cols-2 ">
           {blogs.map((blog, index) => (
             <Link
