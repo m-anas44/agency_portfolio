@@ -28,7 +28,7 @@ const FaqsSection = () => {
   return (
     <section>
       <div className="max-w-6xl px-3 sm:px-4 md:px-6 lg:px-20 py-20 mx-auto">
-        <h2 className="mb-10 text-3xl font-extrabold text-center text-secondary">
+        <h2 className="mb-10 text-2xl xs:text-3xl md:text-4xl font-extrabold text-center text-secondary">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -39,7 +39,7 @@ const FaqsSection = () => {
             >
               <div className="p-6 cursor-pointer group">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-secondary">
+                  <h3 className="text-lg sm:text-xl font-semibold text-secondary">
                     {faq.question}
                   </h3>
                   <svg
@@ -55,7 +55,7 @@ const FaqsSection = () => {
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </div>
-                <p className="hidden mt-4 text-gray-600 group-hover:block">
+                <p className="hidden mt-4 text-sm sm:text-base text-gray-600 group-hover:block">
                   {faq.answer}
                 </p>
               </div>
