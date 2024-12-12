@@ -14,7 +14,7 @@ const CategoryFilter = ({ selectedCategory, onSelectCategory, categories }) => {
           <li
             key={index}
             onClick={() => onSelectCategory(category)} // Trigger callback when a category is selected
-            className={`cursor-pointer py-2 px-4 rounded-lg transition-all duration-200 hover:bg-primary/80 hover:text-white hover:scale-105 ${
+            className={`cursor-pointer py-2 px-4 text-sm sm:text-base rounded-lg transition-all duration-200 hover:bg-primary/80 hover:text-white hover:scale-[1.02] ${
               selectedCategory === category ? 'bg-primary text-white' : 'bg-gray-200 text-secondary'
             }`}
           >

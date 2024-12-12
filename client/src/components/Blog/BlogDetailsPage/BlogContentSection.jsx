@@ -67,7 +67,7 @@ const BlogContentSection = () => {
   };
 
   return (
-    <div className="col-span-12 p-6 bg-white rounded-md shadow-sm lg:col-span-8">
+    <div className="col-span-12 p-4 sm:p-6 bg-white rounded-md shadow-sm lg:col-span-8">
       {/* Blog banner image */}
       <img
         src={blog.image}
@@ -76,7 +76,7 @@ const BlogContentSection = () => {
       />
 
       {/* Post metadata: date and author */}
-      <div className="flex items-center mb-4 space-x-4 text-gray-600">
+      <div className="flex items-center mb-4 space-x-4 text-gray-600 text-xs sm:text-base">
         <span className="text-red-500">
           📅 {new Date(blog.publishedAt).toDateString()}
         </span>
@@ -84,10 +84,10 @@ const BlogContentSection = () => {
       </div>
 
       {/* Blog post title */}
-      <h2 className="mb-4 text-2xl font-semibold">{blog.title}</h2>
+      <h2 className="mb-4 text-xl sm:text-2xl font-semibold">{blog.title}</h2>
 
       {/* Render Blog content with PortableText */}
-      <div className="mb-6">
+      <div className="mb-6 text-sm sm:text-base">
         <PortableText
           value={blog.blogContent}
           components={{
@@ -120,7 +120,7 @@ const BlogContentSection = () => {
       </div>
 
       {/* Closing paragraph */}
-      <p className="leading-relaxed text-gray-700">
+      <p className="leading-relaxed text-sm sm:text-base text-gray-700">
         Enjoyed the article? Stay tuned for more updates.
       </p>
     </div>

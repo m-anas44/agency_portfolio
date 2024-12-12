@@ -76,9 +76,9 @@ const BlogLayout = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="grid grid-cols-1 gap-5 p-6 mx-auto max-w-7xl sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 px-3 sm:px-4 md:px-6 lg:px-20 mx-auto max-w-7xl md:grid-cols-3">
         {/* Main blog post list and pagination */}
-        <div className="order-2 sm:col-span-2 sm:order-1">
+        <div className="order-2 md:col-span-2 md:order-1">
           <BlogPostList posts={currentBlogs} navigate={navigate} />
           <BlogPagination
             totalPages={totalPages}
@@ -88,7 +88,7 @@ const BlogLayout = () => {
         </div>
 
         {/* Sidebar with category filter and recent blogs */}
-        <div className="order-1 sm:order-2">
+        <div className="order-1 md:order-2">
           <CategoryFilter
             selectedCategory={selectedCategory}
             onSelectCategory={handleCategorySelect}

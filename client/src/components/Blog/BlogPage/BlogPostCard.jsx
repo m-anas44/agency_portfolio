@@ -1,7 +1,7 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const BlogPostCard = ({ post, navigate }) => (
-  <div className="mb-6 overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
+  <div className="mb-5 overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
     {/* Post image */}
     <img
       src={post.image}
@@ -9,19 +9,21 @@ const BlogPostCard = ({ post, navigate }) => (
       className="object-cover w-full h-56"
     />
 
-    <div className="p-4">
+    <div className="p-3 sm:p-4">
       {/* Category badge */}
-      <span className="px-2 py-1 text-sm text-white rounded-md bg-secondary">
+      <span className="px-2 py-1 text-xs sm:text-sm text-white rounded-md bg-secondary">
         {post.category}
       </span>
 
-      {/* Post date */}
-      <p className="mt-2 text-sm text-gray-500">{post.date}</p>
-
       {/* Post title */}
-      <h2 className="mt-2 text-xl font-bold text-secondary line-clamp-2">
+      <h2 className="mt-2 text-lg sm:text-xl font-bold text-secondary line-clamp-2">
         {post.title}
       </h2>
+
+      {/* Post date */}
+      <p className="mt-1 text-sm text-gray-500">
+        {new Date(post.publishedAt).toLocaleDateString()}
+      </p>
 
       {/* "Read more" button with navigation and smooth scroll to the top */}
       <button

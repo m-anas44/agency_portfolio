@@ -29,7 +29,7 @@ const TeamLeads = () => {
     <section className='py-16 bg-white'>
       <div className='px-3 sm:px-4 md:px-6 lg:px-20 mx-auto max-w-[90rem]'>
         <h2 className='mb-12 text-2xl xs:text-3xl md:text-4xl font-bold text-center text-secondary '>Meet Our Leadership</h2>
-        <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 '>
+        <div className='grid gap-5 grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))]'>
           {teamLeads.map((lead, index) => (
             <div
               key={index}

@@ -4,7 +4,7 @@ import Pic2 from "@/assets/About/pic2.jpg";
 const AboutUs = () => {
   return (
     <section
-      className="relative px-3 sm:px-4 md:px-6 lg:px-20 py-20 text-white bg-gradient-to-b from-primary/80 to-transparent"
+      className="relative px-3 sm:px-4 md:px-6 lg:px-20 pt-20 pb-3 md:pb-10 text-white bg-gradient-to-b from-primary/80 to-transparent"
       aria-labelledby="about-us-heading"
     >
       {/* Background Overlay for better text readability */}
