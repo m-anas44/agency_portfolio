@@ -80,7 +80,7 @@ const PricingSection = () => {
   }, [setPlan]);
 
   return (
-    <section className='px-3 sm:px-4 md:px-6 lg:px-20 py-10 bg-gradient-to-t from-teal-300 via-teal-50 to-white'>
+    <section className='px-3 sm:px-4 md:px-6 lg:px-20 py-5 sm:py-10 bg-gradient-to-t from-teal-300 via-teal-50 to-white'>
       <div className='grid gap-10 lg:grid-cols-2'>
         {/* Left Section */}
         <article>

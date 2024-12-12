@@ -83,11 +83,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div className='py-16 bg-tertiary'>
+    <div className='py-16  bg-tertiary'>
       {/* Heading Section */}
       <HeadingSection />
       {/* Contact Form */}
-      <div className='grid items-start max-w-4xl gap-12 p-8 mx-auto mt-12 bg-white rounded-lg shadow-xl sm:grid-cols-2'>
+      <div className='grid items-start max-w-4xl gap-12 p-4 sm:p-8 mx-auto mt-12 bg-white rounded-lg shadow-xl sm:grid-cols-2'>
         {/* Left Section */}
         <LeftSide />
 
@@ -104,7 +104,7 @@ const ContactForm = () => {
               name='name'
               value={formData.name}
               onChange={handleChange}
-              className={`block w-full p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
+              className={`block w-full p-3 sm:p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
                 errors.name ? 'border-red-500' : 'border-gray-300'
               } text-secondary`}
               placeholder='Your Name'
@@ -120,7 +120,7 @@ const ContactForm = () => {
               name='email'
               value={formData.email}
               onChange={handleChange}
-              className={`block w-full p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
+              className={`block w-full p-3 sm:p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               } text-secondary`}
               placeholder='Your Email'
@@ -136,14 +136,14 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               rows={6}
-              className={`block w-full p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
+              className={`block w-full p-3 sm:p-4 mb-1 bg-gray-100 border-2 rounded-lg ${
                 errors.message ? 'border-red-500' : 'border-gray-300'
               } text-secondary`}
               placeholder='Your Message'
             ></textarea>
             {errors.message && <p className='text-sm text-red-500'>{errors.message}</p>}
 
-            <button type='submit' className='w-full py-4 mt-4 font-medium text-white rounded-lg bg-primary'>
+            <button type='submit' className='w-full px-4 py-2 sm:px-6 sm:py-3 mt-4 font-medium text-sm sm:text-base md:text-lg text-white rounded-lg bg-primary'>
               Send Message
             </button>
           </form>

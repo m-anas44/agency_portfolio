@@ -20,7 +20,7 @@ const NavbarLink = ({ name, to, onClick }) => (
     <Link
       to={to}
       onClick={onClick}
-      className="text-lg font-normal leading-4 text-white transition-all duration-200 hover:text-primary"
+      className="text-base lg:text-lg font-normal leading-4 text-white transition-all duration-200 hover:text-primary"
     >
       {name}
     </Link>

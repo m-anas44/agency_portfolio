@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section className="px-3 sm:px-4 md:px-6 lg:px-20 py-12 text-primary bg-tertiary">
       <div className="grid grid-cols-1 gap-6 lg:gap-12 mx-auto md:grid-cols-2">
         {/* Left Section: Main content of Hero */}
-        <div>
+        <div className="text-left sm:text-center md:text-left">
           <div>
             {/* Section Heading */}
             <p className="leading-[34px] md:leading-[44px] font-bold text-lg lg:text-xl text-secondary">
@@ -31,7 +31,7 @@ const HeroSection = () => {
           </p>
 
           {/* Call to Action Buttons */}
-          <div className="flex gap-4 mt-8">
+          <div className="flex justify-start sm:justify-center md:justify-start gap-4 mt-8">
             <Button
               className="text-lg text-white transition rounded-md md:text-xl bg-primary hover:bg-secondary hover:scale-100"
               onClick={() => {

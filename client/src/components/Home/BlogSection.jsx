@@ -30,9 +30,9 @@ const BlogSection = () => {
     fetchBlogs();
   }, []);
   return (
-    <section className="px-3 sm:px-4 md:px-6 lg:px-20 py-10 lg:py-7">
+    <section className="py-10 lg:py-7">
       {/* Section Header */}
-      <div className="flex flex-col justify-between mb-10 md:flex-row">
+      <div className="flex flex-col justify-between px-3 sm:px-4 md:px-6 lg:px-20 mb-10 md:flex-row">
         <div>
           <p className="text-lg sm:text-xl font-bold text-secondary text-center md:text-left">
             Blog & News
@@ -54,13 +54,13 @@ const BlogSection = () => {
           </Button>
         </div>
       </div>
-      <div className="max-w-[85rem] mx-auto bg-[#FAF9F6]">
-        <div className="grid gap-10 lg:grid-cols-2 ">
+      <div className="max-w-[85rem] mx-auto bg-[#FAF9F6] px-3 sm:px-4 md:px-6 lg:px-20 py-8">
+        <div className="grid gap-5 sm:gap-10 lg:grid-cols-2 ">
           {blogs.map((blog, index) => (
             <Link
               key={index}
               to={`/blog/${blog.slug.current}`}
-              className="block overflow-hidden bg-secondary group rounded-xl focus:outline-none "
+              className="block overflow-hidden shadow-md hover:shadow-lg bg-secondary group rounded-xl focus:outline-none "
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
                 <div className="relative w-full overflow-hidden shrink-0 sm:rounded-l-xl rounded-t-xl sm:rounded-t-none sm:w-56 h-48">
