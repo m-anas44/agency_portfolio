@@ -1,16 +1,16 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const CarouselSection = () => {
   const services = [
-    'Web Development',
-    'Product Design',
-    'Mobile Apps',
-    'E-Commerce',
-    'UI/UX Design',
-    'Digital Marketing',
+    "Web Development",
+    "Product Design",
+    "Mobile Apps",
+    "E-Commerce",
+    "UI/UX Design",
+    "Digital Marketing",
   ];
 
   const settings = {
@@ -21,7 +21,7 @@ const CarouselSection = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
-    cssEase: 'linear',
+    cssEase: "linear",
     pauseOnHover: false,
     swipe: false,
     arrows: false,
@@ -49,12 +49,12 @@ const CarouselSection = () => {
   };
 
   return (
-    <section className='py-12'>
-      <div className='py-3 md:py-5 bg-secondary'>
-        <Slider {...settings} className='text-center'>
+    <section className="py-12">
+      <div className="py-3 md:py-5 bg-secondary">
+        <Slider {...settings} className="text-center">
           {services.map((service, index) => (
-            <div key={index} className='p-4'>
-              <p className='text-2xl font-bold text-pink-500'>{service}</p>
+            <div key={index} className="p-3">
+              <p className="text-2xl font-bold text-pink-500">{service}</p>
             </div>
           ))}
         </Slider>

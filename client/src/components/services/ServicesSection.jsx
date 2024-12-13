@@ -21,28 +21,31 @@ const ServicesSection = () => {
   }, []);
   return (
     <section
-      className="container px-6 py-20 mx-auto"
+      className="px-3 sm:px-4 md:px-6 lg:px-20 py-14 sm:py-20"
       aria-labelledby="services-title"
     >
       {/* Section Title */}
       <div className="mb-12 text-center">
-        <p className="mb-4 text-lg tracking-widest uppercase text-primary">
+        <p className="mb-1 text-sm sm:text-base md:text-lg tracking-widest uppercase text-primary">
           Our Services
         </p>
-        <h2 id="services-title" className="text-4xl font-bold text-secondary">
+        <h2
+          id="services-title"
+          className="text-2xl xs:text-3xl md:text-4xl font-bold text-secondary"
+        >
           Explore Our <span className="text-primary">Services</span>
         </h2>
       </div>
 
       {/* Services Grid */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 grid-cols-[repeat(auto-fill,_minmax(330px,_1fr))]">
         {services.map((service, index) => (
           <div
             key={index}
-            className="relative flex flex-col justify-between p-8 transition-transform duration-500 bg-white border border-gray-200 shadow-lg rounded-xl group hover:scale-105 hover:shadow-2xl"
+            className="relative flex flex-col justify-between p-8 transition-transform duration-500 bg-white border border-gray-200 shadow-lg rounded-xl group hover:scale-[1.02] hover:shadow-2xl"
             aria-label={`Service: ${service.title}`}
           >
-            {/* Icon */}
+            {/* Image */}
             <div className="mb-6 transition-transform duration-500 group-hover:scale-105">
               <img
                 src={service.image}
@@ -63,7 +66,7 @@ const ServicesSection = () => {
 
             {/* Call-to-Action */}
             <Link
-              to="/service-detail"
+              to={`/services/${service.slug.current}`}
               aria-label={`Learn more about ${service.title}`}
             >
               <button className="relative px-6 py-3 mt-auto font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-primary hover:bg-secondary hover:-translate-y-2">
@@ -87,7 +90,7 @@ const ServicesSection = () => {
             </Link>
 
             {/* Decorative Background Circle */}
-            <div className="absolute w-48 h-32 rounded-full -bottom-4 -right-6 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
+            <div className="absolute w-36 h-24 rounded-full -bottom-2 -right-2 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
           </div>
         ))}
       </div>
