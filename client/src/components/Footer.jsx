@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
@@ -12,6 +12,54 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(""); // New state to store validation errors
+
+  const subscribeToNewsletter = async () => {
+    // Basic email validation using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.trim()) {
+      setError("Email is required.");
+      setMessage("");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      setMessage("");
+      return;
+    }
+
+    setError(""); // Reset any previous error message
+
+    try {
+      const response = await fetch("http://localhost:3000/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setMessage("Subscribed successfully!");
+        setEmail(""); // Clear input after successful submission
+        setTimeout(() => {
+          setMessage("");
+        }, 3000);
+      } else {
+        setMessage(data.message || "Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setMessage("An error occurred. Please try again later.");
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -59,7 +107,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Center Section */}
+          {/* Middle Section */}
           <div>
             <h3 className="text-lg font-bold">Newsletter</h3>
             <p className="mt-4 text-base text-tertiary">
@@ -67,17 +115,22 @@ const Footer = () => {
             </p>
             <div className="flex items-center mt-6">
               <input
-                type="text"
+                type="email"
                 placeholder="Subscribe with us"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 text-gray-300 bg-gray-700 rounded-l focus:outline-none"
               />
               <button
                 className="px-4 py-3 rounded-r bg-tertiary hover:bg-primary group"
-                onClick={() => {}}
+                onClick={subscribeToNewsletter}
               >
                 <FaPaperPlane className="text-primary group-hover:text-tertiary" />
               </button>
             </div>
+            {error && <p className="mt-2 text-sm text-red-500">{error}</p>}{" "}
+            {/* Display error */}
+            {message && <p className="mt-2 text-sm text-primary">{message}</p>}
           </div>
 
           {/* Right Section */}

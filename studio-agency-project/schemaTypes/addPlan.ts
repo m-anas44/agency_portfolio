@@ -47,6 +47,7 @@ export const addPlan = defineType({
           {title: 'Web Development', value: 'Web Development'},
           {title: 'Shopify', value: 'Shopify'},
           {title: 'Digital Marketing', value: 'Digital Marketing'},
+          {title: 'Content Writing', value: 'Content Writing'},
         ],
       },
     }),

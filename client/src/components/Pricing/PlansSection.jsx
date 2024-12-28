@@ -18,7 +18,10 @@ const PlansSection = () => {
             "features": features,
           }
         `);
-
+  
+        // Desired order of categories
+        const categoryOrder = ["Basic", "Standard", "Premium"];
+  
         // Group fetched data by category
         const categorizedPlans = categoriesData.reduce((acc, plan) => {
           const categoryIndex = acc.findIndex((c) => c.title === plan.category);
@@ -42,15 +45,21 @@ const PlansSection = () => {
           }
           return acc;
         }, []);
-
+  
+        // Sort categories based on the predefined order
+        categorizedPlans.sort(
+          (a, b) => categoryOrder.indexOf(a.title) - categoryOrder.indexOf(b.title)
+        );
+  
         setCategories(categorizedPlans);
       } catch (error) {
         console.error("Error fetching plans:", error);
       }
     };
-
+  
     fetchPlans();
   }, []);
+  
 
   return (
     <section>
@@ -81,9 +90,9 @@ const PlansSection = () => {
                   <p className="mt-1 text-3xl md:text-4xl font-extrabold text-white">
                     {plan.price}
                   </p>
-                  <ul className="flex-1 mt-6 space-y-4 text-white">
+                  <ul className="flex-1 mt-6 space-y-3 text-white">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center space-x-3">
+                      <li key={i} className="flex space-x-3">
                         <span className="text-white">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +107,7 @@ const PlansSection = () => {
                             />
                           </svg>
                         </span>
-                        <span className="text-base md:text-lg">{feature}</span>
+                        <span className="text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
