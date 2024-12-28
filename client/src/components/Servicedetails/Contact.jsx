@@ -22,7 +22,7 @@ function Contact() {
               </p>
               <p className="flex items-center gap-2 text-sm lg:text-base">
                 <IoMailOpen />
-                addyour@emailhere
+                techspirex999@gmail.com
               </p>
             </div>
             {/* Circle with icon */}

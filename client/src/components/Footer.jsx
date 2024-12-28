@@ -157,8 +157,8 @@ const Footer = () => {
         <div className="flex items-center justify-between pt-6 mt-10 border-t border-gray-700">
           <p className="text-base text-gray-400">
             © 2024 All rights reserved by{" "}
-            <Link to="#" className="text-primary hover:underline">
-              TechSpireX
+            <Link to="/" className="text-primary hover:underline">
+              TRIVEX
             </Link>
           </p>
           <button
