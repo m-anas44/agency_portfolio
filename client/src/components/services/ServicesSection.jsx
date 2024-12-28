@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { sanityClient } from "@/lib/sanityClient";
+import { HiOutlineBellAlert } from "react-icons/hi2";
 
 const ServicesSection = () => {
   const [services, setServices] = useState([]);
@@ -68,6 +69,7 @@ const ServicesSection = () => {
             <Link
               to={`/services/${service.slug.current}`}
               aria-label={`Learn more about ${service.title}`}
+              onClick={() => window.scrollTo(0, 0)}
             >
               <button className="relative px-6 py-3 mt-auto font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-primary hover:bg-secondary hover:-translate-y-2">
                 Learn More
@@ -90,7 +92,18 @@ const ServicesSection = () => {
             </Link>
 
             {/* Decorative Background Circle */}
-            <div className="absolute w-36 h-24 rounded-full -bottom-2 -right-2 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
+            {service.status !== "upcoming" && (
+              <div className="absolute w-36 h-24 rounded-full -bottom-2 -right-2 bg-primary opacity-30 blur-xl group-hover:animate-pulse"></div>
+            )}
+
+            {service.status === "upcoming" && (
+              <div className="absolute rounded-xl w-full h-full bg-gradient-to-b from-white/40 to bg-white/40 via-primary/40 grid place-items-center inset-0 z-40">
+                <span className="px-4 py-2 absolute rounded-lg bg-secondary text-tertiary flex items-center gap-x-2 animate-bounce">
+                  <HiOutlineBellAlert className="text-2xl" />
+                  {service.status}
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>

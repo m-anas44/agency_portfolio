@@ -30,11 +30,12 @@ const ServicesLayout = ({ services, slug }) => {
               >
                 <button
                   onClick={() => setSelectedService(service)}
-                  className={`w-full flex gap-1 justify-between items-center px-4 py-3 rounded-md text-sm sm:text-base overflow-hidden font-medium ${
+                  className={`w-full flex gap-1 justify-between items-center px-4 py-3 rounded-md text-sm sm:text-base overflow-hidden font-medium disabled:text-gray-400 disabled:hover:bg-white disabled:animate-pulse ${
                     selectedService?.slug?.current === service.slug.current
                       ? "bg-primary text-white"
                       : "bg-white text-gray-700 hover:bg-secondary hover:text-white"
                   } mb-3`}
+                  disabled={service.status === "upcoming"}
                 >
                   <span>{service.title}</span>
                   <MdKeyboardArrowRight className="text-lg" />

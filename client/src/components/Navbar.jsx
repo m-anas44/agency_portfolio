@@ -1,4 +1,4 @@
-import Logo from "@/assets/Logo.png";
+import monogram from "@/assets/monogram.png";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,8 +11,9 @@ const navLinks = [
 
 const servicesDropdown = [
   { name: "Web Development", to: "/services/web-development" },
-  { name: "E-Commerce", to: "/services/e-commerce" },
-  { name: "Shopify Store Design", to: "/services/shopify" },
+  { name: "Video Editing", to: "/services/video-editing" },
+  { name: "Content Writing", to: "/services/content-writing" },
+  { name: "All services", to: "/services" },
 ];
 
 const NavbarLink = ({ name, to, onClick }) => (
@@ -36,15 +37,15 @@ const Navbar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="bg-secondary">
+    <header className="bg-secondary sticky top-0 z-50">
       {!menuOpen && (
         <div className="py-2 mx-auto max-w-screen-2xl px-3 sm:px-4 md:px-6 lg:px-20">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="mt-3">
+            <div className="mt-1">
               <Link to="/">
                 <span className="sr-only">Home</span>
-                <img className="w-28 h-auto" src={Logo} alt="Logo" />
+                <img className="w-40" src={monogram} alt="Logo" />
               </Link>
             </div>
 
@@ -53,29 +54,33 @@ const Navbar = () => {
               <nav aria-label="Global">
                 <ul className="flex items-center gap-8 lg:gap-10">
                   {navLinks.map((link) => (
-                    <NavbarLink key={link.name} name={link.name} to={link.to} />
+                    <NavbarLink
+                      key={link.name}
+                      name={link.name}
+                      to={link.to}
+                      onClick={() => window.scrollTo(0)}
+                    />
                   ))}
 
                   {/* Services Dropdown */}
-                  <Link to="/services">
-                    <li className="relative group">
-                      <span className="text-lg font-normal leading-4 text-white transition-all duration-200 cursor-pointer hover:text-primary">
-                        Services
-                      </span>
-                      <ul className="absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-40 flex flex-col space-y-2">
-                        {servicesDropdown.map((service, index) => (
-                          <li key={index}>
-                            <Link
-                              to={service.to}
-                              className="block px-4 py-2 text-sm font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-primary hover:bg-tertiary"
-                            >
-                              {service.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  </Link>
+                  <li className="relative group">
+                    <span className="text-lg font-normal leading-4 text-white transition-all duration-200 cursor-pointer hover:text-primary">
+                      Services
+                    </span>
+                    <ul className="absolute left-0 invisible opacity-0 p-4 mt-3 bg-white rounded-lg shadow-lg min-w-[180px] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform translate-y-3 z-40 flex flex-col space-y-2">
+                      {servicesDropdown.map((service, index) => (
+                        <li key={index}>
+                          <Link
+                            to={service.to}
+                            onClick={() => window.scrollTo(0, 0)}
+                            className="block p-2 text-sm font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-primary hover:bg-tertiary"
+                          >
+                            {service.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -134,7 +139,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-4 h-28">
           {/* Logo */}
           <Link to="/">
-            <img className="w-36" src={Logo} alt="Logo" />
+            <img className="w-40 mt-1" src={monogram} alt="Logo" />
           </Link>
 
           {/* Close Button */}
@@ -165,7 +170,8 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.to}
-              className="text-lg font-normal leading-4 text-white transition-all duration-200 hover:text-primary"
+              onClick={() => window.scrollTo(0)}
+              className="font-normal leading-4 text-white transition-all duration-200 hover:text-primary"
             >
               {link.name}
             </Link>
@@ -174,7 +180,7 @@ const Navbar = () => {
           {/* Services Dropdown for Mobile */}
           <div className="w-full">
             <button
-              className="flex items-center w-full gap-2 text-lg font-normal leading-4 text-white rounded-lg bg-secondary hover:text-primary"
+              className="flex items-center w-full gap-2 font-normal leading-4 text-white rounded-lg bg-secondary hover:text-primary"
               onClick={() => setServicesOpen((prev) => !prev)}
             >
               Services
@@ -202,6 +208,7 @@ const Navbar = () => {
                   <li key={index}>
                     <Link
                       to={service.to}
+                      onClick={() => window.scrollTo(0)}
                       className="block px-4 py-2 text-sm font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-primary hover:bg-tertiary "
                     >
                       {service.name}
