@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import RightSide from "./RightSide";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Contact from "./Contact";
-import Broucher from "./Broucher";
 
 const ServicesLayout = ({ services, slug }) => {
   const [selectedService, setSelectedService] = useState(null);
@@ -46,7 +45,6 @@ const ServicesLayout = ({ services, slug }) => {
         </div>
 
         <div className="hidden md:block">
-          <Broucher />
           <Contact />
         </div>
       </div>
@@ -56,7 +54,6 @@ const ServicesLayout = ({ services, slug }) => {
         <RightSide services={services} slug={slug} />
       </div>
       <div className="block md:hidden">
-        <Broucher />
         <Contact />
       </div>
     </section>

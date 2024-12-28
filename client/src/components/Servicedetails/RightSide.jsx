@@ -14,7 +14,7 @@ const RightSide = ({ services, slug }) => {
     const { width, height } = getImageDimensions(value);
     const imageUrl = imageUrlBuilder
       .image(value)
-      .width(isInline ? 100 : 800) // Adjust width for inline or block display
+      .width(isInline ? 100 : 600) // Adjust width for inline or block display
       .fit("max") // Fit the image
       .auto("format") // Auto-format the image
       .url();
@@ -27,6 +27,8 @@ const RightSide = ({ services, slug }) => {
         style={{
           display: isInline ? "inline-block" : "block",
           aspectRatio: width / height,
+          marginTop: "10px",
+          marginBottom: "10px",
         }}
       />
     );
@@ -50,12 +52,15 @@ const RightSide = ({ services, slug }) => {
                 },
                 listItem: {
                   bullet: ({ children }) => (
-                    <li style={{ listStyleType: "disclosure-closed" }}>
+                    <li style={{ listStyleType: "disc", marginLeft: "1.5rem" }}>
                       {children}
                     </li>
                   ),
-
-                  checkmarks: ({ children }) => <li>✅ {children}</li>,
+                  checkmarks: ({ children }) => (
+                    <li style={{ listStyleType: "disc", marginLeft: "1.5rem" }}>
+                      ✅ {children}
+                    </li>
+                  ),
                 },
                 marks: {
                   link: ({ children, value }) => (
@@ -67,6 +72,31 @@ const RightSide = ({ services, slug }) => {
                     >
                       {children}
                     </a>
+                  ),
+                },
+                block: {
+                  h1: ({ children }) => (
+                    <h1 className="text-5xl font-bold mb-4 text-secondary">
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-4xl font-semibold mb-3 text-secondary">
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="text-3xl font-medium mb-2 text-secondary">
+                      {children}
+                    </h3>
+                  ),
+                  h4: ({ children }) => (
+                    <h4 className="text-2xl font-semibold mb-1 text-secondary">
+                      {children}
+                    </h4>
+                  ),
+                  normal: ({ children }) => (
+                    <p className="mb-2 text-gray-700">{children}</p>
                   ),
                 },
               }}
