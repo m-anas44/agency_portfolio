@@ -11,17 +11,14 @@ const PlansSection = () => {
       try {
         // Fetch plans grouped by category
         const categoriesData = await sanityClient.fetch(`
-          *[_type == "plan"] | order(category) {
-            category,
+          *[_type == "plan"] | order(category->title desc, price asc) {
+            "category": category->title,
             planName,
             price,
             "features": features,
           }
         `);
-  
-        // Desired order of categories
-        const categoryOrder = ["Basic", "Standard", "Premium"];
-  
+
         // Group fetched data by category
         const categorizedPlans = categoriesData.reduce((acc, plan) => {
           const categoryIndex = acc.findIndex((c) => c.title === plan.category);
@@ -45,28 +42,22 @@ const PlansSection = () => {
           }
           return acc;
         }, []);
-  
-        // Sort categories based on the predefined order
-        categorizedPlans.sort(
-          (a, b) => categoryOrder.indexOf(a.title) - categoryOrder.indexOf(b.title)
-        );
-  
+
         setCategories(categorizedPlans);
       } catch (error) {
         console.error("Error fetching plans:", error);
       }
     };
-  
+
     fetchPlans();
   }, []);
-  
 
   return (
     <section>
       {categories.map((category, index) => (
         <div
           key={index}
-          className="max-w-6xl px-3 sm:px-4 md:px-6 lg:px-20 py-6 mx-auto"
+          className="max-w-6xl px-3 sm:px-4 md:px-6 lg:px-3 py-6 mx-auto"
         >
           <h2 className="mb-8 text-xl xs:text-2xl md:text-3xl font-extrabold text-secondary">
             {category.title}
@@ -75,7 +66,7 @@ const PlansSection = () => {
             {category.plans.map((plan, idx) => (
               <div
                 key={idx}
-                className="relative p-8 overflow-hidden transition duration-300 transform rounded-lg shadow-md bg-gradient-to-br from-primary via-primary to-secondary/80 hover:shadow-xl hover:-translate-y-2"
+                className="relative p-4 md:p-6 overflow-hidden transition duration-300 transform rounded-lg shadow-md bg-gradient-to-br from-primary via-primary to-secondary/80 hover:shadow-xl hover:-translate-y-2"
               >
                 {/* Decorative corner ribbon */}
                 <div className="absolute top-0 right-0 px-3 py-1 text-sm font-bold text-white rounded-bl-lg bg-secondary">
@@ -92,11 +83,11 @@ const PlansSection = () => {
                   </p>
                   <ul className="flex-1 mt-6 space-y-3 text-white">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex space-x-3">
+                      <li key={i} className="flex space-x-2">
                         <span className="text-white">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6"
+                            className="w-4 h-4 md:w-6 md:h-6"
                             viewBox="0 0 24 24"
                             fill="currentColor"
                           >
@@ -107,7 +98,9 @@ const PlansSection = () => {
                             />
                           </svg>
                         </span>
-                        <span className="text-sm md:text-base">{feature}</span>
+                        <span className="text-xs md:text-sm font-normal">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>

@@ -9,7 +9,7 @@ app.use(cors()); // Enable CORS for all requests
 app.use(bodyParser.json());
 
 // Load the service account key
-const credentials = require("./agency-newsletter-46f9505ae0a9.json"); // Replace with the path to your key file
+const credentials = require("./agency-project-447310-fdb80cc81a7a.json"); // Replace with the path to your key file
 
 // Google Sheets API setup
 const auth = new google.auth.GoogleAuth({
@@ -29,7 +29,7 @@ app.post("/", async (req, res) => {
   try {
     // Append email to the Google Sheet
     await sheets.spreadsheets.values.append({
-      spreadsheetId: "1SPYRPEwD-jD8CzfNEAKEj2t9LV0fVd6darLYLJ7vbGY",
+      spreadsheetId: "11O2OfE7IG4WbrTf6mNuKh0eRBiVnGJJuY3lPvr34tSk",
       range: "Sheet1!A1", // Assuming you're adding emails to the first column of Sheet1
       valueInputOption: "USER_ENTERED",
       requestBody: {

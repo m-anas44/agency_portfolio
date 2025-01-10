@@ -67,8 +67,8 @@ const PricingSection = () => {
       try {
         // Fetch plans grouped by category
         const planData = await sanityClient.fetch(`
-          *[_type == "plan"] | order(category)[0] {
-            category,
+          *[_type == "plan"] | order(category->title desc)[0] {
+            "category": category->title,
             planName,
             description,
             price,
@@ -76,13 +76,16 @@ const PricingSection = () => {
           }
         `);
         setPlan(planData);
-        console.log("plan", plan);
       } catch (error) {
         console.error("Failed to fetch plans");
       }
     };
     fetchPlans();
   }, [setPlan]);
+
+  if (!plan) {
+    return <p className="bg-primary/15 animate-pulse p-3">Loading...</p>;
+  }
 
   return (
     <section className="px-3 sm:px-4 md:px-6 lg:px-20 py-5 sm:py-10 bg-gradient-to-t from-teal-300 via-teal-50 to-white">

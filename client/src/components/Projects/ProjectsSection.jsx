@@ -4,7 +4,7 @@ import { sanityClient } from "../../lib/sanityClient";
 import ProjectsGrid from "./ProjectsGrid";
 
 const ProjectsSection = () => {
-  const [activeTab, setActiveTab] = useState("web-development");
+  const [activeTab, setActiveTab] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [projects, setProjects] = useState([]);
 
@@ -18,15 +18,24 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const query = `*[_type == "project"]{
+        const query = `*[_type == "project"] | order(category->title){
           title,
           description,
-          category,
+          "category":category->title,
           slug,
           "image": image.asset->url
         }`;
         const data = await sanityClient.fetch(query);
-        setProjects(data);
+
+        // Ensure slug is a string and handle any missing fields
+        const formattedData = data.map((project) => ({
+          ...project,
+          slug: project.slug?.current || "#", // Default slug to "#" if not available
+          category: project.category || "General", // Fallback for missing category
+          image: project.image || "", // Handle missing image gracefully
+        }));
+
+        setProjects(formattedData);
       } catch (error) {
         console.error("Error fetching portfolio items:", error);
       }

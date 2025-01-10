@@ -39,17 +39,25 @@ export const addPlan = defineType({
     }),
     defineField({
       name: 'category',
-      type: 'string',
       title: 'Category',
+      type: 'reference',
+      to: [{type: 'service'}],
+      description: 'Select a service category associated with this plan.',
       validation: (rule) => rule.required(),
-      options: {
-        list: [
-          {title: 'Web Development', value: 'Web Development'},
-          {title: 'Shopify', value: 'Shopify'},
-          {title: 'Digital Marketing', value: 'Digital Marketing'},
-          {title: 'Content Writing', value: 'Content Writing'},
-        ],
-      },
     }),
   ],
+  preview: {
+    select: {
+      title: 'planName',
+      subtitle: 'category.title', // Reference the title of the related service
+      price: 'price',
+      discount: 'discount',
+    },
+    prepare({title, subtitle, price, discount}) {
+      return {
+        title,
+        subtitle: `${subtitle || 'No category'} - $${price || '0.00'}${discount ? ` (${discount}% off)` : ''}`,
+      }
+    },
+  },
 })

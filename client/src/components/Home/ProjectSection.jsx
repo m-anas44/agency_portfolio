@@ -13,10 +13,10 @@ const ProjectSection = () => {
     const fetchProjects = async () => {
       try {
         const query = `
-          *[_type == "project"]{
+          *[_type == "project"] | order(category->title) {
             title,
             description,
-            category,
+            "category": category->title,
             slug,
             "image": image.asset->url
           }
@@ -40,7 +40,7 @@ const ProjectSection = () => {
             <span className="block text-lg sm:text-xl font-bold text-secondary text-center md:text-left">
               Our Portfolio
             </span>
-            Creative <span className="text-secondary ">Projects</span>
+            Creative <span className="text-secondary">Projects</span>
           </h2>
         </div>
         <div>
@@ -85,23 +85,11 @@ const ProjectSection = () => {
                     : item.description}
                 </p>
               </div>
-              <div className="flex items-center justify-between mt-4">
-                <span className="px-4 py-1 text-xs font-medium text-white rounded-full bg-secondary">
-                  {item.category || "General"}
-                </span>
-                <Link
-                  to={item.slug.current}
-                  target="_blank"
-                  className="text-sm text-primary hover:underline"
-                >
-                  Learn More
-                </Link>
-              </div>
             </div>
 
             {/* Hover Effect */}
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/70 group-hover:opacity-100">
-              <Link to={item.slug.current} target="_blank">
+              <Link to={`${item.slug.current}`} target="_blank">
                 <button className="px-6 py-3 text-sm font-medium text-white transition-all duration-200 rounded-full bg-primary hover:bg-secondary">
                   View Project
                 </button>
