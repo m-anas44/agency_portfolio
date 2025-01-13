@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { sanityClient } from "@/lib/sanityClient";
 import { PortableText } from "@portabletext/react";
 import urlBuilder from "@sanity/image-url"; // Import the image URL builder
-import { getImageDimensions } from "@sanity/asset-utils"; // Import image dimension utility
+import { getImageDimensions } from "@sanity/asset-utils";
+import LoadingSpinner from "../../SharedComponents/loadingSpinner";
 
 // Create the Sanity URL builder client
 const imageUrlBuilder = urlBuilder(sanityClient);
@@ -36,7 +37,11 @@ const BlogContentSection = () => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="grid h-screen place-items-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (!blog) {

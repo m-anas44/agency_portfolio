@@ -43,16 +43,11 @@ export const addBlog = defineType({
     }),
     defineField({
       name: 'category',
-      type: 'string',
       title: 'Category',
+      type: 'reference',
+      to: [{type: 'service'}],
+      description: 'Select a service category associated with this blog.',
       validation: (rule) => rule.required(),
-      options: {
-        list: [
-          {title: 'Web Development', value: 'Web Development'},
-          {title: 'Shopify', value: 'Shopify'},
-          {title: 'Digital Marketing', value: 'Digital Marketing'},
-        ],
-      },
     }),
     defineField({
       name: 'publishedAt',

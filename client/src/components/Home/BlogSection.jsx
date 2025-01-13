@@ -12,12 +12,12 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const query = `*[_type == "blog"]{
+        const query = `*[_type == "blog"] | order(category->title){
           _id,
           title,
           slug,
           "image": image.asset->url,
-          category,
+          "category": category->title,
           publishedAt
         }`;
         const data = await sanityClient.fetch(query);
@@ -60,6 +60,7 @@ const BlogSection = () => {
             <Link
               key={index}
               to={`/blog/${blog.slug.current}`}
+              onClick={() => window.scrollTo(0)}
               className="block overflow-hidden shadow-md hover:shadow-lg bg-secondary group rounded-xl focus:outline-none "
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">

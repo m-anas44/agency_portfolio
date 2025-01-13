@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sanityClient } from "@/lib/sanityClient";
+import LoadingSpinner from "../SharedComponents/loadingSpinner";
 
 const PlansSection = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state to track the data fetching process
 
   useEffect(() => {
     const fetchPlans = async () => {
       try {
+        setLoading(true); // Set loading to true when starting to fetch data
+
         // Fetch plans grouped by category
         const categoriesData = await sanityClient.fetch(`
           *[_type == "plan"] | order(category->title desc, price asc) {
@@ -46,11 +50,22 @@ const PlansSection = () => {
         setCategories(categorizedPlans);
       } catch (error) {
         console.error("Error fetching plans:", error);
+      } finally {
+        setLoading(false); // Set loading to false once the data has been fetched
       }
     };
 
     fetchPlans();
   }, []);
+
+  // If data is still loading, render the loading spinner
+  if (loading) {
+    return (
+      <div className="grid h-screen place-items-center px-3 sm:px-4 md:px-6 lg:px-20">
+        <LoadingSpinner />
+      </div>
+    ); // Show the LoadingSpinner component while fetching data
+  }
 
   return (
     <section>

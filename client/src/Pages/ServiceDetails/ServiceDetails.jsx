@@ -3,9 +3,11 @@ import HeroSection from "../../components/Servicedetails/HeroSection";
 import ServicesLayout from "../../components/Servicedetails/ServicesLayout";
 import { sanityClient } from "@/lib/sanityClient";
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "../../components/SharedComponents/loadingSpinner";
 
 const ServiceDetails = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
   const { slug } = useParams();
 
   const query = `*[_type == "service"]{
@@ -21,20 +23,50 @@ const ServiceDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const service = await sanityClient.fetch(query);
-        setServices(service);
+        setLoading(true); // Start loading
+        const fetchedServices = await sanityClient.fetch(query);
+        setServices(fetchedServices);
       } catch (error) {
         console.error("Error in fetching service details:", error);
+      } finally {
+        setLoading(false); // End loading
       }
     };
 
     fetchData();
-  }, [slug, setServices]); // Correct dependency array
+  }, []);
+
+  const selectedService = services.find(
+    (service) => service.slug.current === slug
+  );
+
+  if (loading) {
+    return (
+      <div className="grid place-items-center h-screen">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <div>
-      <HeroSection services={services} slug={slug} />
-      <ServicesLayout services={services} slug={slug} />
+      {selectedService ? (
+        <>
+          <HeroSection services={services} slug={slug} />
+          <ServicesLayout services={services} slug={slug} />
+        </>
+      ) : (
+        <div className="grid place-items-center h-screen text-center">
+          <div>
+            <h5 className="text-2xl font-bold text-red-500">
+              Service Not Found
+            </h5>
+            <p className="text-gray-600">
+              The service you are looking for does not exist.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

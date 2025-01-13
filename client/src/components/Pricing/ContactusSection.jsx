@@ -13,6 +13,7 @@ const ContactusSection = () => {
         </p>
         <Link
           to="/contact"
+          onClick={() => window.scrollTo(0)}
           className="px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-semibold transition-all bg-white rounded-lg text-primary hover:bg-secondary hover:text-white"
         >
           Contact Us

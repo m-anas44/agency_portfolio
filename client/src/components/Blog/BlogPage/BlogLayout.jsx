@@ -5,29 +5,27 @@ import CategoryFilter from "./CategoryFilter";
 import RecentBlog from "./RecentBlog";
 import BlogPagination from "./Pagination";
 import { sanityClient } from "@/lib/sanityClient";
+import LoadingSpinner from "../../SharedComponents/loadingSpinner";
 
 const BlogLayout = () => {
-  // State to manage blogs, category filter, and pagination
   const [blogs, setBlogs] = useState([]);
-  const [categories, setCategories] = useState([]); // New state for categories
+  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true); // Loading state
 
-  // Number of posts displayed per page
   const postsPerPage = 4;
-
   const navigate = useNavigate();
 
-  // Fetch blogs from Sanity on component mount
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const query = `*[_type == "blog"]{
+        const query = `*[_type == "blog"] | order(category->title){
           _id,
           title,
           slug,
           "image": image.asset->url,
-          category,
+          "category": category->title,
           publishedAt
         }`;
         const data = await sanityClient.fetch(query);
@@ -38,16 +36,19 @@ const BlogLayout = () => {
           "All",
           ...new Set(data.map((blog) => blog.category)),
         ];
+
         setCategories(uniqueCategories);
+        setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
         console.error("Error fetching blogs:", error);
+        setLoading(false); // Set loading to false if there's an error
       }
     };
 
     fetchBlogs();
   }, []);
 
-  // Sort blogs by date in descending order (newest first)
+  // Sort blogs by date in descending order
   const sortedBlogs = [...blogs].sort(
     (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
   );
@@ -58,20 +59,15 @@ const BlogLayout = () => {
       ? sortedBlogs
       : sortedBlogs.filter((blog) => blog.category === selectedCategory);
 
-  // Calculate indices for the current page of blogs
+  // Pagination logic
   const lastBlogIndex = currentPage * postsPerPage;
   const firstBlogIndex = lastBlogIndex - postsPerPage;
-
-  // Slice the filtered blogs to get only the blogs for the current page
   const currentBlogs = filteredBlogs.slice(firstBlogIndex, lastBlogIndex);
-
-  // Calculate the total number of pages needed for pagination
   const totalPages = Math.ceil(filteredBlogs.length / postsPerPage);
 
-  // Handle category selection and reset pagination to the first page
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to page 1 when changing the category
+    setCurrentPage(1);
   };
 
   return (
@@ -79,12 +75,20 @@ const BlogLayout = () => {
       <div className="grid grid-cols-1 gap-5 px-3 sm:px-4 md:px-6 lg:px-20 mx-auto max-w-7xl md:grid-cols-3">
         {/* Main blog post list and pagination */}
         <div className="order-2 md:col-span-2 md:order-1">
-          <BlogPostList posts={currentBlogs} navigate={navigate} />
-          <BlogPagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onPageChange={setCurrentPage}
-          />
+          {loading ? (
+            <div className="flex h-[50vh] justify-center items-center mt-6">
+              <LoadingSpinner /> {/* Show spinner while loading */}
+            </div>
+          ) : (
+            <>
+              <BlogPostList posts={currentBlogs} navigate={navigate} />
+              <BlogPagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onPageChange={setCurrentPage}
+              />
+            </>
+          )}
         </div>
 
         {/* Sidebar with category filter and recent blogs */}
@@ -92,7 +96,7 @@ const BlogLayout = () => {
           <CategoryFilter
             selectedCategory={selectedCategory}
             onSelectCategory={handleCategorySelect}
-            categories={categories} // Pass all categories to CategoryFilter
+            categories={categories}
           />
           <RecentBlog />
         </div>

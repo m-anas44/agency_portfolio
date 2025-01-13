@@ -18,7 +18,7 @@ function Contact() {
           </h1>
           <p className="flex items-center gap-2 text-sm lg:text-base">
             <FaPhoneAlt />
-            (+44)123456789
+            (+92) 322-5066108
           </p>
           <p className="flex items-center gap-2 text-sm lg:text-base">
             <IoMailOpen />

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
-  FaTwitter,
-  FaYoutube,
   FaLinkedinIn,
   FaPaperPlane,
   FaPhone,
@@ -35,7 +33,7 @@ const Footer = () => {
     setError(""); // Reset any previous error message
 
     try {
-      const response = await fetch("http://localhost:3000/", {
+      const response = await fetch(import.meta.env.VITE_CORS_ORIGIN, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -90,18 +88,6 @@ const Footer = () => {
                 to="#"
                 className="flex items-center justify-center w-8 h-8 bg-gray-700 rounded hover:bg-gray-600"
               >
-                <FaTwitter />
-              </Link>
-              <Link
-                to="#"
-                className="flex items-center justify-center w-8 h-8 bg-gray-700 rounded hover:bg-gray-600"
-              >
-                <FaYoutube />
-              </Link>
-              <Link
-                to="#"
-                className="flex items-center justify-center w-8 h-8 bg-gray-700 rounded hover:bg-gray-600"
-              >
                 <FaLinkedinIn />
               </Link>
             </div>
@@ -140,7 +126,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <FaPhone className="text-primary" />
                 <p className="text-base text-tertiary">
-                  Contact Us: (+44) 123-456-789
+                  Contact Us: (+92) 322-5066108
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -155,12 +141,15 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="flex items-center justify-between pt-6 mt-10 border-t border-gray-700">
-          <p className="text-base text-gray-400">
+          <p className="text-base text-gray-400 w-3/4">
             © 2024 All rights reserved by{" "}
-            <Link to="/" className="text-primary hover:underline">
-              TRIVEX
+            <Link to="/" className="text-primary hover:underline uppercase">
+              trivexsolutions
             </Link>
           </p>
+          {/* <Link to="/terms-of-service" className="text-sm text-primary underline ml-auto mr-3">
+      Terms of Service
+    </Link> */}
           <button
             className="flex items-center justify-center w-8 h-8 duration-200 rounded-full md:w-10 md:h-10 bg-tertiary hover:bg-primary group hover:scale-105"
             aria-label="Back to top"

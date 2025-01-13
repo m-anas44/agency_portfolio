@@ -2,6 +2,7 @@ import { PortableText } from "@portabletext/react";
 import urlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/lib/sanityClient";
 import { getImageDimensions } from "@sanity/asset-utils";
+import LoadingSpinner from "../SharedComponents/loadingSpinner";
 
 const imageUrlBuilder = urlBuilder(sanityClient);
 
@@ -104,7 +105,7 @@ const RightSide = ({ services, slug }) => {
           </div>
         </div>
       ) : (
-        <h2 className="text-xl font-bold text-red-500">Page Not Found</h2>
+        <LoadingSpinner />
       )}
     </section>
   );
