@@ -16,11 +16,11 @@ const Button = ({ text, onClick, icon }) => (
 
 // Reusable List Item Component
 const ListItem = ({ description }) => (
-  <li className="flex items-start">
+  <li className="flex items-center">
     <div className="flex items-center justify-center text-white bg-teal-500 rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-6 h-6"
+        className="w-4 h-4 md:w-6 md:h-6"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -32,7 +32,7 @@ const ListItem = ({ description }) => (
       </svg>
     </div>
 
-    <p className="ml-3 text-xl text-secondary/90">{description}</p>
+    <p className="ml-3 text-sm md:text-base text-secondary/90">{description}</p>
   </li>
 );
 

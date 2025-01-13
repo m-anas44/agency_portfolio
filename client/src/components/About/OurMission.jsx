@@ -2,11 +2,11 @@ import { Button } from '@/components/SharedComponents/index';
 
 const OurMission = () => {
   return (
-    <section className='relative py-20 px-3 sm:px-4 md:px-6 lg:px-20 text-secondary mt-[15px] sm:mt-[22px]'>
+    <section className='relative py-10 md:py-20 px-3 sm:px-4 md:px-6 lg:px-20 text-secondary mt-[15px] sm:mt-[22px]'>
       {/* Overlay content */}
       <div className='relative z-10 text-center '>
         {/* Heading */}
-        <h1 className='mb-6 text-4xl font-extrabold sm:text-5xl lg:text-6xl '>
+        <h1 className='mb-6 text-3xl font-extrabold sm:text-4xl lg:text-5xl '>
           Our Mission: <span className='text-primary'>Empowering the Future</span>
         </h1>
 
@@ -17,7 +17,7 @@ const OurMission = () => {
         </p>
 
         {/* 3 Key Points */}
-        <div className='grid grid-cols-1 gap-10 mt-20 sm:grid-cols-3 '>
+        <div className='grid grid-cols-1 gap-10 mt-14 sm:grid-cols-3 '>
           <div className='flex flex-col items-center text-center '>
             <div className='mb-4 text-4xl text-primary'>🚀</div>
             <h3 className='text-xl font-semibold text-primary'>Innovation</h3>

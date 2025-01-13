@@ -2,44 +2,11 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const testimonials = [
-  {
-    id: 1,
-    title: "It's all about speed",
-    description:
-      "We provide you with a test account that can be set up in seconds. Our main focus is getting you up and running quickly.",
-    text: "Amazing people to work with. Very fast and professional partner.",
-    name: "Josh Grazioso",
-    role: "Director Payments & Risk | Airbnb",
-    avatar:
-      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-  },
-  {
-    id: 2,
-    title: "Responsive and Helpful",
-    description:
-      "Our team works tirelessly to provide immediate support and ensure customer satisfaction throughout the process.",
-    text: "The team was incredibly responsive and helpful throughout the process.",
-    name: "Sophia Turner",
-    role: "CTO | Tech Solutions",
-    avatar:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?crop=faces&fit=crop&w=320&h=320&q=80",
-  },
-  {
-    id: 3,
-    title: "Professional and Reliable",
-    description:
-      "We focus on delivering quality service and a smooth experience for all our clients to build lasting relationships.",
-    text: "We loved their professionalism and the quality of service they delivered! ",
-    name: "James Anderson",
-    role: "CEO | Innovate Inc.",
-    avatar:
-      "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=faces&fit=crop&w=320&h=320&q=80",
-  },
-];
+import { testimonials } from "../../lib/mock/reviews";
 
 const TestimonialSection = () => {
   const carouselSettings = {
+    dots: true, // Show dots
     infinite: true, // Infinite loop
     speed: 500, // Transition speed
     slidesToShow: 1, // Number of slides to show
@@ -63,24 +30,19 @@ const TestimonialSection = () => {
       <div className="px-3 sm:px-4 md:px-6 lg:px-20 py-10 lg:py-7 mx-auto  bg-gradient-to-r from-tertiary/90 to-tertiary/90 rounded-lg my-12">
         <div className=" lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
           {/* Left Side: Carousel Section */}
-          <div className="lg:col-span-5 lg:col-start-1">
+          <div className="lg:col-span-5 lg:col-start-1 border-2 border-secondary rounded-lg">
             <Slider {...carouselSettings}>
-              {testimonials.map((testimonial) => (
-                <div
-                  className=" p-4 border-2 border-secondary rounded-lg h-[20rem] overflow-auto"
-                  key={testimonial.id}
-                >
+              {testimonials.map((testimonial, index) => (
+                <div className="p-4 max-h-[22rem] overflow-hidden" key={index}>
                   <div>
-                    <h2 className="mb-4 text-3xl font-bold text-secondary">
-                      {testimonial.title}
+                    <h2 className="mb-1 text-3xl font-bold text-secondary">
+                      {testimonial.name}
                     </h2>
-                    <p className="mb-6 text-secondary">
-                      {testimonial.description}
-                    </p>
+                    <p className="mb-4 text-secondary">{testimonial.title}</p>
                   </div>
                   <div className="relative z-10">
-                    <p className="text-xl italic text-gray-800 max-sm:truncate">
-                      {testimonial.text}
+                    <p className=" italic text-gray-800 max-sm:line-clamp-3">
+                      {testimonial.quote}
                     </p>
                   </div>
 
@@ -89,7 +51,7 @@ const TestimonialSection = () => {
                       <div className="shrink-0">
                         <img
                           className="w-8 h-8 rounded-full"
-                          src={testimonial.avatar}
+                          src={testimonial.image}
                           alt={testimonial.name}
                         />
                       </div>
@@ -114,7 +76,7 @@ const TestimonialSection = () => {
               <ul className="grid grid-cols-2 overflow-hidden divide-x-2 divide-y-2 divide-secondary">
                 <li className="flex flex-col -m-0.5 p-4 sm:p-8">
                   <div className="flex items-end mb-2 text-3xl font-bold gap-x-2 sm:text-5xl text-secondary">
-                    500+
+                    50+
                   </div>
                   <p className="text-sm sm:text-base text-secondary">
                     projects delivered for businesses worldwide
@@ -171,7 +133,7 @@ const TestimonialSection = () => {
 
                 <li className="flex flex-col -m-0.5 p-4 sm:p-8">
                   <div className="flex items-end mb-2 text-3xl font-bold gap-x-2 sm:text-5xl text-secondary">
-                    3x
+                    2x
                   </div>
                   <p className="text-sm sm:text-base text-secondary">
                     faster delivery than industry standards

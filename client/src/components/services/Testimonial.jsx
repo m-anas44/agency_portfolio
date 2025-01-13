@@ -1,29 +1,7 @@
 import React from "react";
+import { testimonials } from "../../lib/mock/reviews";
 
 const Testimonial = () => {
-  const testimonials = [
-    {
-      name: "Zachary Holden",
-      title: "CEO & Founder",
-      quote:
-        "We've used web design agency for the last five years. We can't understand how we've been living without web design agency. Thank You!",
-      image: "https://via.placeholder.com/150", // Replace with actual image URL
-    },
-    {
-      name: "Daniel Johann",
-      title: "Satisfied Customer",
-      quote:
-        "I am so pleased with this product. Absolutely wonderful! You won't regret it. It's really wonderful. Definitely worth the investment.",
-      image: "https://via.placeholder.com/150", // Replace with actual image URL
-    },
-    {
-      name: "Alannah Jeffcott",
-      title: "Business Consultant",
-      quote:
-        "I'd be lost without web design agency. Web design agency is the most valuable business resource we have EVER purchased.",
-      image: "https://via.placeholder.com/150", // Replace with actual image URL
-    },
-  ];
 
   return (
     <div className="py-10 bg-gray-100">

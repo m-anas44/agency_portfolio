@@ -41,9 +41,9 @@ const AboutUs = () => {
 
           {/* Stats Cards */}
           <div className="flex flex-wrap gap-3">
-            <StatsCard value="5+" description="Projects in Progress" />
-            <StatsCard value="10+" description="Satisfied Clients" />
             <StatsCard value="2" description="Industries Entered" />
+            <StatsCard value="10+" description="Projects in Progress" />
+            <StatsCard value="50+" description="Satisfied Clients" />
           </div>
         </div>
       </div>

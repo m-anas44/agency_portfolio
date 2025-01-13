@@ -19,7 +19,10 @@ const Services = () => {
   useEffect(() => {
     sanityClient
       .fetch(query)
-      .then((data) => setServices(data))
+      .then((data) => {
+        const ServicesData = data.slice(0, 3);
+        setServices(ServicesData);
+      })
       .catch((err) => console.error("Failed to fetch services:", err));
   }, []);
 

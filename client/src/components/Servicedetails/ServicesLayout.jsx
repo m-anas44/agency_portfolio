@@ -13,7 +13,7 @@ const ServicesLayout = ({ services, slug }) => {
   }, [slug, services]);
 
   return (
-    <section className="flex flex-col gap-5 px-3 sm:px-4 md:px-6 lg:px-20 py-5 md:py-10 md:flex-row max-w-7xl">
+    <section className="flex flex-col gap-5 px-3 sm:px-4 md:px-6 lg:px-20 py-5 md:py-10 md:flex-row">
       {/* Left Content Section */}
       <div className="md:w-1/3">
         {/* Main Services Section */}

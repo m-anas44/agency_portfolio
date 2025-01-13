@@ -146,7 +146,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-primary" />
                 <p className="text-base text-tertiary">
-                  Mail Us: techspirex999@gmail.com
+                  Mail Us: trivexsolutions@gmail.com
                 </p>
               </div>
             </div>

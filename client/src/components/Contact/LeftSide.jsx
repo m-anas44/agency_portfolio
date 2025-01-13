@@ -30,7 +30,7 @@ const LeftSide = () => {
               rel='noopener noreferrer'
               className='ml-4 text-sm text-primary'
             >
-              <strong>techspirex999@gmail.com</strong>
+              <strong>trivexsolutions@gmail.com</strong>
             </a>
           </li>
         </ul>

@@ -22,7 +22,8 @@ const ProjectSection = () => {
           }
         `;
         const data = await sanityClient.fetch(query);
-        setProjects(data);
+        const filteredProjects = data.slice(0, 3);
+        setProjects(filteredProjects);
       } catch (error) {
         console.error("Error fetching portfolio items:", error);
       }

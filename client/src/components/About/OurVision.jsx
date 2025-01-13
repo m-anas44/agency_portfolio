@@ -2,8 +2,8 @@ import Pic3 from '../../assets/About/pic3.png';
 
 const OurVision = () => {
   return (
-    <section className='bg-white text-gray-900 py-10 md:py-16 mt-[30px]'>
-      <div className='flex gap-16 mx-auto px-3 sm:px-4 md:px-6 lg:px-20'>
+    <section className='bg-white text-gray-900 py-10 mt-[30px]'>
+      <div className='flex items-center gap-16 mx-auto px-3 sm:px-4 md:px-6 lg:px-20'>
         {/* Image Section */}
         <div className='w-full hidden lg:block lg:max-w-lg lg:w-1/2'>
           <img

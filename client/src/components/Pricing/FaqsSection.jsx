@@ -3,24 +3,24 @@ import React from "react";
 // FAQ data
 const faqs = [
   {
-    question: "How long does it take to complete a project?",
+    question: "What’s the typical turnaround time for a project?",
     answer:
-      "Project timelines vary depending on the scope and complexity. On average, a website project can take 2-6 weeks.",
+      " Turnaround times vary depending on the project’s complexity. We’ll provide a clear timeline during the planning phase to ensure transparency and timely delivery",
   },
   {
-    question: "Do you offer support after the project is completed?",
+    question: "Are there any hidden fees or additional charges?",
     answer:
-      "Yes, all our plans include a period of support after completion. Premium plans come with extended support.",
+      "No, our pricing is transparent, and we don’t have any hidden fees. If additional charges apply for extra services, we’ll inform you upfront",
   },
   {
-    question: "Can I upgrade my plan later?",
+    question: "How can I ensure the deliverables align with my expectations?",
     answer:
-      "Absolutely! You can upgrade at any time, and we’ll ensure a smooth transition.",
+      "Before starting a project, we work closely with you to understand your goals and requirements. Regular updates, feedback sessions, and a dedicated point of contact ensure that the final deliverables meet or exceed your expectations. Additionally, we offer revisions within the scope of your plan to fine-tune the output.",
   },
   {
-    question: "What platforms do you support for E-commerce?",
+    question: "How do I determine which plan is right for my project?",
     answer:
-      "We specialize in Shopify, WooCommerce, and custom-built platforms tailored to your needs.",
+      "If you're unsure about which plan suits your needs, feel free to contact us for a free consultation. We'll help you choose a plan based on your project size, goals, and budget.",
   },
 ];
 
