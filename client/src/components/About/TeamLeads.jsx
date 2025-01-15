@@ -2,51 +2,54 @@ import React from "react";
 import mudasir from "@/assets/about/mudasir.jpg";
 import anas from "@/assets/about/anas.jpg";
 import zohaib from "@/assets/about/zohaib.jpg";
+import { Link } from "react-router-dom";
 const Team = () => {
   return (
-    <section className="py-14 px-4 md:px-6 lg:px-20">
-      <div className="container mx-auto">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[610px] text-center">
-              <span className="mb-2 block text-lg font-semibold text-primary">
-                Our Team
-              </span>
-              <h2 className="mb-3 text-3xl font-bold leading-[1.2] sm:text-4xl md:text-[40px]">
-                Our Awesome Team
-              </h2>
-              <p className="text-base text-gray-600 leading-relaxed mt-2">
-                Our team is composed of dedicated professionals who bring
-                diverse skills and a shared passion for excellence. Together, we
-                work tirelessly to deliver exceptional results and innovative
-                solutions that make a lasting impact.
-              </p>
-            </div>
+    <section className="py-14 px-3 sm:px-4 md:px-6 lg:px-20">
+      <div className="-mx-4 flex flex-wrap">
+        <div className="w-full px-4">
+          <div className="mx-auto mb-[60px] max-w-[610px] text-center">
+            <span className="mb-2 block text-lg font-semibold text-primary">
+              Our Team
+            </span>
+            <h2 className="mb-3 text-3xl font-bold leading-[1.2] sm:text-4xl md:text-[40px]">
+              Our Awesome Team
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed mt-2">
+              Our team is composed of dedicated professionals who bring diverse
+              skills and a shared passion for excellence. Together, we work
+              tirelessly to deliver exceptional results and innovative solutions
+              that make a lasting impact.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] gap-4">
-          <TeamCard
-            name="Muhammad Anas"
-            profession="Web Developer"
-            imageSrc={anas}
-          />
-          <TeamCard
-            name="Zohaib Sadiq"
-            profession="Web Developer"
-            imageSrc={zohaib}
-          />
-          <TeamCard
-            name="Sohail Mukhtar"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/30tGtjP/image-04.jpg"
-          />
-          <TeamCard
-            name="M. Mudasir"
-            profession="Frontend Developer"
-            imageSrc={mudasir}
-          />
-        </div>
+      <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-4">
+        <TeamCard
+          name="Muhammad Anas"
+          profession="Web Developer"
+          imageSrc={anas}
+          slug="https://professional-portfolio-gray.vercel.app/"
+        />
+        <TeamCard
+          name="Zohaib Sadiq"
+          profession="Frontend Developer"
+          imageSrc={zohaib}
+          slug="https://myportfolio-phi-murex.vercel.app/"
+        />
+        <TeamCard
+          name="Sohail Mukhtar"
+          profession="Content Writer"
+          imageSrc="https://i.ibb.co/30tGtjP/image-04.jpg"
+          slug=""
+        />
+        <TeamCard
+          name="M. Mudasir"
+          profession="Frontend Developer"
+          imageSrc={mudasir}
+          slug=""
+        />
       </div>
     </section>
   );
@@ -54,14 +57,17 @@ const Team = () => {
 
 export default Team;
 
-const TeamCard = ({ imageSrc, name, profession }) => {
+const TeamCard = ({ imageSrc, name, profession, slug }) => {
   return (
     <div className="relative overflow-hidden rounded-lg ">
-      <img src={imageSrc} alt="" className="w-full object-cover h-96" />
+      <img src={imageSrc} alt="" className="w-full object-cover h-80" />
       <div className="absolute bottom-5 left-0 w-full text-center">
         <div className="relative mx-5 overflow-hidden rounded-lg bg-white px-3 py-5 ">
           <h3 className="text-base font-semibold">{name}</h3>
           <p className="text-xs">{profession}</p>
+          <Link to={slug} className="text-[9px] underline">
+            View portfolio{" "}
+          </Link>
           <div>
             <span className="absolute bottom-0 left-0">
               <svg

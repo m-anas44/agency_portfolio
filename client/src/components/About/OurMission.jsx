@@ -1,5 +1,3 @@
-import { Button } from '@/components/SharedComponents/index';
-
 const OurMission = () => {
   return (
     <section className='relative py-10 md:py-20 px-3 sm:px-4 md:px-6 lg:px-20 text-secondary mt-[15px] sm:mt-[22px]'>

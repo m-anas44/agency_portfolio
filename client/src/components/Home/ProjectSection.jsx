@@ -80,7 +80,7 @@ const ProjectSection = () => {
                 <h3 className="text-xl font-semibold text-gray-800 truncate">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                <p className="mt-2 text-sm leading-relaxed line-clamp-2 text-gray-600">
                   {item.description.length > 90
                     ? `${item.description.substring(0, 90)}...`
                     : item.description}

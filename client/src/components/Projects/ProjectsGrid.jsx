@@ -19,10 +19,10 @@ function ProjectsGrid({ filteredProjects }) {
 
           {/* Content that appears when hovering over the project */}
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
-            <h3 className="mb-4 text-xl xs:text-2xl font-bold">
+            <h3 className="mb-4 text-xl xs:text-2xl font-bold line-clamp-2">
               {project.title}
             </h3>
-            <p className="mb-6 text-sm sm:text-base">{project.description}</p>
+            <p className="mb-6 text-sm sm:text-base line-clamp-3">{project.description}</p>
             <Link
               to={`${project.slug}`}
               aria-label={`View project ${project.title}`}

@@ -7,10 +7,10 @@ const CarouselSection = () => {
   const services = [
     "Web Development",
     "Product Design",
-    "Mobile Apps",
+    "Content Writing",
     "E-Commerce",
     "UI/UX Design",
-    "Digital Marketing",
+    "Video Editing",
   ];
 
   const settings = {
@@ -27,9 +27,16 @@ const CarouselSection = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 768, // Small screens (md and below)
+        breakpoint: 540,
         settings: {
           slidesToShow: 1,
+          swipe: true, // Enable swipe on smaller screens
+        },
+      },
+      {
+        breakpoint: 768, // Small screens (md and below)
+        settings: {
+          slidesToShow: 2,
           swipe: true, // Enable swipe on smaller screens
         },
       },
@@ -42,7 +49,7 @@ const CarouselSection = () => {
       {
         breakpoint: 1280, // Larger screens (xl and above)
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
     ],

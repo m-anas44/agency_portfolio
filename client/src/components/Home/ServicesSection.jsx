@@ -20,7 +20,11 @@ const Services = () => {
     sanityClient
       .fetch(query)
       .then((data) => {
-        const ServicesData = data.slice(0, 3);
+        // Filter out services with the status of "upcoming"
+        const filteredServices = data.filter(
+          (service) => service.status !== "upcoming"
+        );
+        const ServicesData = filteredServices.slice(0, 3);
         setServices(ServicesData);
       })
       .catch((err) => console.error("Failed to fetch services:", err));
@@ -85,8 +89,9 @@ const Services = () => {
 
               {/* Call-to-Action */}
               <Link
-                to="/service-detail"
+                to={`/services/${service.slug.current}`}
                 aria-label={`Learn more about ${service.title}`}
+                onClick={() => window.scrollTo(0, 0)}
               >
                 <button className="relative px-6 py-3 mt-auto font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-primary hover:bg-secondary hover:-translate-y-2">
                   Learn More

@@ -50,7 +50,7 @@ const Navbar = () => {
                 className="flex items-center px-3 py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-3 text-nowrap overflow-hidden text-base font-medium rounded-full lg:text-lg text-tertiary bg-primary hover:bg-tertiary hover:text-primary group"
                 onClick={() => {
                   navigate("/contact");
-                  window.scrollTo(0);
+                  window.scrollTo(0, 0);
                 }}
               >
                 {/* Ping effect */}
